@@ -74,7 +74,7 @@ const AboutPage = () => {
         </p>
         <Link
           href="/sign-up"
-          className="inline-block bg-white text-purple-600 hover:text-purple-700 px-6 py-3 rounded-md font-medium shadow-md transition"
+          className="text-2xl font-bold mb-5 bg-gradient-to-r from-purple-600 via-pink-400 to-red-500 bg-clip-text text-transparent px-6 py-3 rounded-md shadow-md transition-all duration-200 hover:bg-purple-600 hover:text-white hover:bg-clip-border hover:scale-105"
         >
           Get Started
         </Link>
