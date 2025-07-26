@@ -35,25 +35,28 @@ export default async function HomePage() {
 
               <div className="space-y-2">
                 <p className="text-gray-600">
-                  <span className="font-semibold text-gray-800">Joined :</span>{' '}
+                  <span className="font-semibold text-gray-800">Joined :</span>{" "}
                   {new Date(user.createdAt).toLocaleDateString()}
                 </p>
 
-                <p className='text-gray-600'>
-                  <span className='font-semibold text-gray-800'>
+                <p className="text-gray-600">
+                  <span className="font-semibold text-gray-800">
                     Last Active:
-                  </span>{' '}
+                  </span>{" "}
                   {user.lastActiveAt
                     ? new Date(user.lastActiveAt).toLocaleString()
-                    : 'N/A'}
+                    : "N/A"}
                 </p>
               </div>
             </div>
           </div>
           {/* Placeholder for AddSleepRedord */}
-          
         </div>
+
+        {/* Right Column */}
+        <div className="space-y-6">{/* Placeholder for SleepRecordList */}</div>
       </div>
+      <div className="max-w-7xl mt-auto"></div>
     </main>
   );
 }
