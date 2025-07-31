@@ -1,5 +1,6 @@
 import Guest from "@/components/Guest";
 import { currentUser } from "@clerk/nextjs/server"; //This function retrieves the currently signed-in user from Clerk on the server side
+import AddNewRecord from "@/components/AddNewRecord";
 
 export default async function HomePage() {
   //This is the main page component that renders when someone visits the homepage (/)
@@ -51,6 +52,7 @@ export default async function HomePage() {
             </div>
           </div>
           {/* Placeholder for AddSleepRedord */}
+          <AddNewRecord />
         </div>
 
         {/* Right Column */}
