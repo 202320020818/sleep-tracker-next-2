@@ -37,6 +37,12 @@ const Footer = () => {
                   About
                 </Link>
                 <Link
+                  href="/exercise"
+                  className="text-sm font-medium text-slate-600 transition hover:text-sky-700"
+                >
+                  Exercise
+                </Link>
+                <Link
                   href="/contact"
                   className="text-sm font-medium text-slate-600 transition hover:text-sky-700"
                 >

@@ -1,64 +1,100 @@
 import Guest from "@/components/Guest";
-import { currentUser } from "@clerk/nextjs/server"; //This function retrieves the currently signed-in user from Clerk on the server side
+import { currentUser } from "@clerk/nextjs/server";
 import AddNewRecord from "@/components/AddNewRecord";
+import Link from "next/link";
 
 export default async function HomePage() {
-  //This is the main page component that renders when someone visits the homepage (/)
-  const user = await currentUser(); //This returns the user object if someone is logged in, or null if not.
+  const user = await currentUser();
 
   if (!user) {
-    //If there is no user, it means the user is not logged in
-    //So we return the Guest component which is a public page for users who are not logged
     return <Guest />;
   }
+
   return (
-    <main className="bg-gray-100 text-gray-800 front-sans min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* left Column */}
-        <div className="space-y-6">
-          <div className="bg-white p-6 rounded-lg shadow-md flex flex-col sm:flex-row item center sm:items-start gap-6">
-            {/* Use Image */}
-            <img
-              src={user.imageUrl}
-              alt={`${user.firstName}&#39;s profile`}
-              className="w-24 h-24 rounded-full border border-gray-300 shadow-md"
-            />
-
-            {/* User details */}
-            <div className="flex-1">
-              <h2 className="text-2xl md:text-3xl font-bold text-purple-600 mb-2">
-                Welcom Back, {user.firstName}
-              </h2>
-              <p className="text-gray-600 mb-4">
-                Here&#39;s a quick overview of your recent sleep activity.on top
-                of your data insights and manage your tasks efficiently!
-              </p>
-
-              <div className="space-y-2">
-                <p className="text-gray-600">
-                  <span className="font-semibold text-gray-800">Joined :</span>{" "}
-                  {new Date(user.createdAt).toLocaleDateString()}
+    <main className="min-h-screen bg-[#f6f9fc] text-slate-900">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8 lg:py-16">
+        <div className="grid gap-6">
+          <section className="overflow-hidden rounded-[2.25rem] border border-slate-200 bg-white shadow-sm">
+            <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+              <div>
+                <div className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
+                  Welcome Back
+                </div>
+                <h1 className="mt-5 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                  Hi {user.firstName || "there"}, let&apos;s keep your sleep
+                  routine on track.
+                </h1>
+                <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+                  Log how you slept, keep your routine visible, and build
+                  better nights with steady progress over time.
                 </p>
 
-                <p className="text-gray-600">
-                  <span className="font-semibold text-gray-800">
-                    Last Active:
-                  </span>{" "}
-                  {user.lastActiveAt
-                    ? new Date(user.lastActiveAt).toLocaleString()
-                    : "N/A"}
-                </p>
+                <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                  <div className="rounded-[1.5rem] bg-slate-50 p-4 ring-1 ring-slate-200">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
+                      Joined
+                    </p>
+                    <p className="mt-2 text-lg font-semibold text-slate-900">
+                      {new Date(user.createdAt).toLocaleDateString()}
+                    </p>
+                  </div>
+
+                  <div className="rounded-[1.5rem] bg-slate-50 p-4 ring-1 ring-slate-200">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
+                      Last Active
+                    </p>
+                    <p className="mt-2 text-lg font-semibold text-slate-900">
+                      {user.lastActiveAt
+                        ? new Date(user.lastActiveAt).toLocaleDateString()
+                        : "N/A"}
+                    </p>
+                  </div>
+
+                  <div className="rounded-[1.5rem] bg-slate-50 p-4 ring-1 ring-slate-200">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
+                      Focus
+                    </p>
+                    <p className="mt-2 text-lg font-semibold text-slate-900">
+                      Better sleep daily
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-8">
+                  <Link
+                    href="/records"
+                    className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700"
+                  >
+                    View My Records
+                  </Link>
+                </div>
+              </div>
+
+              <div className="flex justify-center lg:justify-end">
+                <div className="flex flex-col items-center rounded-[2rem] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-6 text-center shadow-sm">
+                  <img
+                    src={user.imageUrl}
+                    alt={`${user.firstName || "User"} profile`}
+                    className="h-32 w-32 rounded-full object-cover shadow-md ring-4 ring-white sm:h-40 sm:w-40"
+                  />
+                  <div className="mt-4">
+                    <p className="text-xl font-bold text-slate-900">
+                      {user.firstName || "SleepTracker User"}
+                    </p>
+                    <p className="mt-1 text-sm text-slate-500">
+                      Keep showing up for better rest.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          {/* Placeholder for AddSleepRedord */}
-          <AddNewRecord />
-        </div>
+          </section>
 
-        {/* Right Column */}
-        <div className="space-y-6">{/* Placeholder for SleepRecordList */}</div>
-      </div>
-      <div className="max-w-7xl mt-auto"></div>
+          <section className="w-full">
+            <AddNewRecord />
+          </section>
+        </div>
+      </section>
     </main>
   );
 }

@@ -1,114 +1,191 @@
 "use client";
+
 import { useRef, useState } from "react";
 import addSleepRecord from "@/app/actions/addSleepRecord";
 
+const sleepOptions = [
+  {
+    value: "Deep Sleep",
+    label: "Deep Sleep",
+    note: "You woke up feeling fully rested and refreshed.",
+  },
+  {
+    value: "Good Sleep",
+    label: "Good Sleep",
+    note: "You slept well and felt mostly comfortable overnight.",
+  },
+  {
+    value: "Light Sleep",
+    label: "Light Sleep",
+    note: "You slept, but the quality felt lighter than usual.",
+  },
+  {
+    value: "Restless Night",
+    label: "Restless Night",
+    note: "You woke up often or had trouble staying asleep.",
+  },
+  {
+    value: "Exhausted",
+    label: "Exhausted",
+    note: "You feel drained and need better recovery.",
+  },
+];
+
+const amountLabels = [
+  { label: "Short", value: "0 - 4 hrs" },
+  { label: "Average", value: "5 - 7 hrs" },
+  { label: "Great", value: "8 - 12 hrs" },
+];
+
 const AddRecord = () => {
   const formRef = useRef<HTMLFormElement>(null);
-  const [amount, setAmount] = useState(6); // Default value for the slider
-  const [alertMessage, setAlertMessage] = useState<string | null>(null); // State for alert message
-  const [alertType, setAlertType] = useState<"success" | "error" | null>(null); // State for alert type
-  const [isLoading, setIsLoading] = useState(false); // State for loading spinner
-  const [sleepQuality, setSleepQuality] = useState(""); // State for selected sleep quality
+  const [amount, setAmount] = useState(6);
+  const [alertMessage, setAlertMessage] = useState<string | null>(null);
+  const [alertType, setAlertType] = useState<"success" | "error" | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [sleepQuality, setSleepQuality] = useState("Good Sleep");
 
   const clientAction = async (formData: FormData) => {
-    setIsLoading(true); // Show spinner
-    setAlertMessage(null); // Clear previous messages
+    setIsLoading(true);
+    setAlertMessage(null);
 
-    formData.set("amount", amount.toString()); // Add the slider value to the form data
-    formData.set("text", sleepQuality); // Add the selected sleep quality to the form data
+    formData.set("amount", amount.toString());
+    formData.set("text", sleepQuality);
 
-    const { error } = await addSleepRecord(formData); // Removed `data` since it's unused
+    const { error } = await addSleepRecord(formData);
 
     if (error) {
       setAlertMessage(`Error: ${error}`);
-      setAlertType("error"); // Set alert type to error
+      setAlertType("error");
     } else {
-      setAlertMessage("Sleep record added successfully!");
-      setAlertType("success"); // Set alert type to success
+      setAlertMessage("Sleep record added successfully.");
+      setAlertType("success");
       formRef.current?.reset();
-      setAmount(6); // Reset the slider to the default value
-      setSleepQuality(""); // Reset the sleep quality
+      setAmount(6);
+      setSleepQuality("Good Sleep");
     }
 
-    setIsLoading(false); // Hide spinner
+    setIsLoading(false);
   };
 
   return (
-    <div className="bg-gray-100 flex items-center justify-center">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full">
-        <h3 className="text-2xl font-bold text-center mb-6 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent">
-          Track Your Sleep
-        </h3>
-        <form
-          ref={formRef}
-          onSubmit={(e) => {
-            e.preventDefault();
-            const formData = new FormData(formRef.current!);
-            clientAction(formData);
-          }}
-          className="space-y-6"
-        >
-          {/* Sleep Quality and Sleep Date */}
-          <div className="flex flex-col md:flex-row md:space-x-4">
-            {/* Sleep Quality */}
-            <div className="flex-1">
-              <label
-                htmlFor="text"
-                className="block text-sm font-medium text-gray-700 mb-2"
-              >
-                Sleep Quality
-              </label>
-              <select
-                id="text"
-                name="text"
-                value={sleepQuality}
-                onChange={(e) => setSleepQuality(e.target.value)}
-                className="block w-full border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 px-4 py-2"
-                required
-              >
-                <option value="" disabled>
-                  Sleep quality...
-                </option>
-                <option value="Refreshed"> Refreshed</option>
-                <option value="Tired"> Tired</option>
-                <option value="Neutral"> Neutral</option>
-                <option value="Exhausted"> Exhausted</option>
-                <option value="Energetic"> Energetic</option>
-              </select>
-            </div>
+    <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+      <div className="flex flex-col gap-3 border-b border-slate-100 pb-6">
+        <div className="inline-flex w-fit rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
+          New Sleep Record
+        </div>
+        <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <h3 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+              Track tonight&apos;s sleep in a cleaner way
+            </h3>
+            <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+              Choose how your sleep felt, set the date, and log your hours in a
+              few quick steps.
+            </p>
+          </div>
+          <div className="rounded-[1.5rem] bg-slate-50 px-4 py-3 ring-1 ring-slate-200">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
+              Current hours
+            </p>
+            <p className="mt-1 text-2xl font-bold text-slate-900">{amount}h</p>
+          </div>
+        </div>
+      </div>
 
-            {/* Sleep Date */}
-            <div className="flex-1">
-              <label
-                htmlFor="date"
-                className="block text-sm font-medium text-gray-700 mb-2"
-              >
-                Sleep Date
-              </label>
-              <input
-                type="date"
-                name="date"
-                id="date"
-                className="block w-full border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 px-4 py-2"
-                placeholder="Select a date"
-                required
-                onFocus={(e) => e.target.showPicker()} // Open the calendar on focus
-              />
-            </div>
+      <form
+        ref={formRef}
+        onSubmit={(event) => {
+          event.preventDefault();
+          const formData = new FormData(formRef.current!);
+          clientAction(formData);
+        }}
+        className="mt-6 space-y-8"
+      >
+        <div>
+          <label className="block text-sm font-semibold text-slate-800">
+            Sleep quality
+          </label>
+          <p className="mt-1 text-sm text-slate-500">
+            Pick the option that best matches how you felt after sleeping.
+          </p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            {sleepOptions.map((option) => {
+              const isSelected = sleepQuality === option.value;
+
+              return (
+                <button
+                  key={option.value}
+                  type="button"
+                  onClick={() => setSleepQuality(option.value)}
+                  className={`rounded-[1.5rem] border p-4 text-left transition ${
+                    isSelected
+                      ? "border-sky-500 bg-sky-50 shadow-[0_10px_30px_rgba(14,165,233,0.12)]"
+                      : "border-slate-200 bg-white hover:border-sky-200 hover:bg-slate-50"
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-base font-semibold text-slate-900">
+                      {option.label}
+                    </p>
+                    <span
+                      className={`h-4 w-4 rounded-full border ${
+                        isSelected
+                          ? "border-sky-600 bg-sky-600 ring-4 ring-sky-100"
+                          : "border-slate-300 bg-white"
+                      }`}
+                    />
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    {option.note}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+          <input type="hidden" name="text" value={sleepQuality} />
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
+          <div className="rounded-[1.75rem] bg-slate-50 p-5 ring-1 ring-slate-200">
+            <label
+              htmlFor="date"
+              className="block text-sm font-semibold text-slate-800"
+            >
+              Sleep date
+            </label>
+            <p className="mt-1 text-sm leading-6 text-slate-500">
+              Choose the date for the sleep entry you want to save.
+            </p>
+            <input
+              type="date"
+              name="date"
+              id="date"
+              required
+              defaultValue={new Date().toISOString().split("T")[0]}
+              onFocus={(event) => event.target.showPicker?.()}
+              className="mt-4 block w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+            />
           </div>
 
-          {/* Hours Slept */}
-          <div>
-            <label
-              htmlFor="amount"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Hours Slept
-              <br />
-              <span className="text-xs text-gray-500">
-                (Select between 0 and 12 in steps of 0.5)
-              </span>
-            </label>
+          <div className="rounded-[1.75rem] bg-slate-50 p-5 ring-1 ring-slate-200">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <label
+                  htmlFor="amount"
+                  className="block text-sm font-semibold text-slate-800"
+                >
+                  Hours slept
+                </label>
+                <p className="mt-1 text-sm leading-6 text-slate-500">
+                  Select between 0 and 12 hours in steps of 0.5.
+                </p>
+              </div>
+              <div className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-sky-700 ring-1 ring-slate-200">
+                {amount} hours
+              </div>
+            </div>
+
             <input
               type="range"
               name="amount"
@@ -117,59 +194,75 @@ const AddRecord = () => {
               max="12"
               step="0.5"
               value={amount}
-              onChange={(e) => setAmount(parseFloat(e.target.value))}
-              className="w-full cursor-pointer"
+              onChange={(event) => setAmount(parseFloat(event.target.value))}
+              className="mt-6 w-full cursor-pointer accent-sky-600"
             />
-            <div className="text-center text-gray-700 mt-2">{amount} hours</div>
-          </div>
 
-          {/* Submit Button */}
+            <div className="mt-4 grid grid-cols-3 gap-3">
+              {amountLabels.map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-2xl bg-white px-4 py-3 text-center ring-1 ring-slate-200"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-700">
+                    {item.label}
+                  </p>
+                  <p className="mt-1 text-sm text-slate-600">{item.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 border-t border-slate-100 pt-6">
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white px-4 py-2 rounded-md font-medium shadow-md transition flex items-center justify-center cursor-pointer"
-            disabled={isLoading} // Disable button while loading
+            disabled={isLoading}
+            className="inline-flex w-full items-center justify-center rounded-full bg-sky-700 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-sky-800 disabled:cursor-not-allowed disabled:bg-sky-400"
           >
             {isLoading ? (
-              <svg
-                className="animate-spin h-5 w-5 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                ></path>
-              </svg>
+              <span className="flex items-center gap-3">
+                <svg
+                  className="h-5 w-5 animate-spin text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                  />
+                </svg>
+                Saving Record...
+              </span>
             ) : (
               "Add Sleep Record"
             )}
           </button>
-        </form>
 
-        {/* Alert Message */}
-        {alertMessage && (
-          <div
-            className={`mt-4 p-3 rounded-md text-sm ${
-              alertType === "success"
-                ? "bg-green-100 text-green-800 border border-green-300"
-                : "bg-red-100 text-red-800 border border-red-300"
-            }`}
-          >
-            {alertMessage}
-          </div>
-        )}
-      </div>
-    </div>
+          {alertMessage ? (
+            <div
+              className={`rounded-[1.25rem] px-4 py-3 text-sm font-medium ${
+                alertType === "success"
+                  ? "border border-emerald-200 bg-emerald-50 text-emerald-700"
+                  : "border border-red-200 bg-red-50 text-red-700"
+              }`}
+            >
+              {alertMessage}
+            </div>
+          ) : null}
+        </div>
+      </form>
+    </section>
   );
 };
 

@@ -22,6 +22,7 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Records   Record[]
+  Exercises Exercise[]
 }
 
 model Record {
@@ -32,5 +33,20 @@ model Record {
   userId    String
   user      User     @relation(fields: [userId], references: [clerkUserId], onDelete: Cascade)
   createdAt DateTime @default(now())
+  @@index([userId])
+}
+
+model Exercise {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  duration    String
+  progress    String
+  imageUrl    String
+  date        DateTime @default(now())
+  userId      String
+  user        User     @relation(fields: [userId], references: [clerkUserId], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+
   @@index([userId])
 }
