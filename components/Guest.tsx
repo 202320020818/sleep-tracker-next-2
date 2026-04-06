@@ -1,104 +1,175 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
+import Link from "next/link";
 import { SignInButton } from "@clerk/nextjs";
+
+const heroImages = [
+  {
+    src: "/983bd1eef748ff8cf5cfc1fc371c8988.jpg",
+    alt: "Person sleeping peacefully",
+    className: "md:col-span-2 md:row-span-2",
+  },
+  {
+    src: "/118e77f7e25a0aecb19acd493013da43.jpg",
+    alt: "Relaxing sleep scene",
+    className: "",
+  },
+  {
+    src: "/1a37285c9c1e11d3b6d0c05928c62dae.jpg",
+    alt: "Healthy rest lifestyle",
+    className: "",
+  },
+];
+
+const galleryImages = [
+  {
+    src: "/39926cec947327694bdfd2e58ec1bcae.jpg",
+    alt: "Person resting comfortably",
+  },
+  {
+    src: "/a56d7ce5901e0ad1e6f09dbd4b891f56.jpg",
+    alt: "Night routine visual",
+  },
+  {
+    src: "/ce87491892aee2f9116a0bbf6a5bef88.jpg",
+    alt: "Sleep wellness illustration",
+  },
+  {
+    src: "/f2739b1b643e3a32a0a407137d93b1d4.jpg",
+    alt: "Calm sleeping atmosphere",
+  },
+];
+
+const features = [
+  {
+    title: "Track Every Night",
+    description:
+      "Keep a simple record of your sleep and build a routine you can actually maintain.",
+  },
+  {
+    title: "See What Changes",
+    description:
+      "Notice patterns in your sleep habits and understand what helps you rest better.",
+  },
+  {
+    title: "Improve Step by Step",
+    description:
+      "Use your sleep data to make small changes that lead to healthier nights over time.",
+  },
+];
 
 const Guest = () => {
   return (
-    <div className="font-sans bg-gray-100 text-gray-800">
-      {/* Hero Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between p-3 md:p-16 bg-gray-100 pt-20">
-        <div className="flex-1 mb-8 xl:pl-10">
-          <h1 className="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent">
-            Welcome to SleepTracker
-          </h1>
-          <p className="md:text-xl mb-6">
-            Track your sleep, improve your health, and wake up feeling refreshed
-            with SleepTracker.
-          </p>
-          <SignInButton>
-            <button className="w-full md:w-auto bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white px-4 py-2 rounded-md font-medium cursor-pointer">
-              Get Started
-            </button>
-          </SignInButton>
-        </div>
-        <div className="flex-1 flex justify-center items-center">
-          <img
-            src="sleep-tracker.png"
-            alt="SleepTracker Illustration"
-            className="w-full md:max-w-md rounded-tl-3xl rounded-br-3xl shadow-lg"
-          />
-        </div>
-      </div>
+    <main className="min-h-screen bg-[#f5f8fc] text-slate-900">
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-8 lg:py-20">
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="max-w-2xl">
+            <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
+              Sleep Better With SleepTracker
+            </span>
+            <h1 className="mt-5 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+              A cleaner way to track your nights and improve your mornings.
+            </h1>
+            <p className="mt-6 text-lg leading-8 text-slate-600">
+              SleepTracker helps you log your sleep, understand your habits,
+              and build a healthier routine with clear insight and a calm
+              experience.
+            </p>
 
-      {/* Divider */}
-      <div className="h-1 bg-gray-300"></div>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <SignInButton>
+                <button className="rounded-full bg-sky-700 px-7 py-3 text-sm font-semibold text-white transition hover:bg-sky-800">
+                  Get Started
+                </button>
+              </SignInButton>
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700"
+              >
+                Learn More
+              </Link>
+            </div>
 
-      {/* Frequently Asked Questions Section */}
-      <div className="py-16 px-8 bg-white">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
-          Frequently Asked Questions
-        </h2>
-        <div className="max-w-3xl mx-auto space-y-8">
-          <div>
-            <h3 className="text-xl font-bold">What is SleepTracker?</h3>
-            <p className="text-gray-600">
-              SleepTracker is a powerful tool designed to help you monitor your
-              sleep patterns and improve your overall health.
-            </p>
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              {features.map((feature) => (
+                <div
+                  key={feature.title}
+                  className="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm"
+                >
+                  <h2 className="text-base font-semibold text-slate-900">
+                    {feature.title}
+                  </h2>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div>
-            <h3 className="text-xl font-bold">How does it work?</h3>
-            <p className="text-gray-600">
-              SleepTracker analyzes your sleep data and provides personalized
-              insights to help you achieve better sleep.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold">Is SleepTracker free?</h3>
-            <p className="text-gray-600">
-              Yes, SleepTracker offers a free plan with basic features. Premium
-              plans are available for advanced insights and analytics.
-            </p>
-          </div>
-        </div>
-      </div>
 
-      {/* Divider */}
-      <div className="h-1 bg-gray-300"></div>
-
-      {/* Testimonials Section */}
-      <div className="py-16 px-8 bg-gray-100">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
-          What Our Users Say
-        </h2>
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-md shadow">
-            <p className="text-gray-700 mb-4">
-              &quot;SleepTracker has completely transformed my sleep schedule. I
-              feel more energized every day!&quot;
-            </p>
-            <p className="text-purple-500 font-bold">- Eshan H.</p>
-          </div>
-          <div className="bg-white p-6 rounded-md shadow">
-            <p className="text-gray-700 mb-4">
-              &quot;The insights from SleepTracker have helped me identify and
-              fix my sleep issues. Highly recommend it!&quot;
-            </p>
-            <p className="text-purple-500 font-bold">- Udaya S.</p>
-          </div>
-          <div className="bg-white p-6 rounded-md shadow">
-            <p className="text-gray-700 mb-4">
-              &quot;SleepTracker is so easy to use and provides accurate data.
-              It&#39;s a must-have for anyone looking to improve their
-              sleep!&quot;
-            </p>
-            <p className="text-purple-500 font-bold">- Susatha K.</p>
+          <div className="rounded-[2.25rem] border border-slate-200 bg-white p-4 shadow-[0_24px_80px_rgba(148,163,184,0.16)]">
+            <div className="grid auto-rows-[170px] gap-4 sm:grid-cols-2 md:auto-rows-[190px]">
+              {heroImages.map((image) => (
+                <div
+                  key={image.src}
+                  className={`relative overflow-hidden rounded-[1.5rem] ${image.className}`}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    priority
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+
+        <section className="mt-12 rounded-[2.25rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700">
+                Sleep Inspiration
+              </p>
+              <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
+                A visual space built around calm, rest, and healthier routines.
+              </h2>
+              <p className="mt-4 text-base leading-7 text-slate-600">
+                Your 7 uploaded images are now used across the home page to
+                make the experience feel more alive and visually complete.
+              </p>
+            </div>
+
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-700"
+            >
+              Contact Us
+            </Link>
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {galleryImages.map((image) => (
+              <div
+                key={image.src}
+                className="relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-100"
+              >
+                <div className="relative aspect-[4/5]">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </section>
+    </main>
   );
 };
 
 export default Guest;
-
-

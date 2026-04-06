@@ -1,142 +1,186 @@
-"use client"; //This tells Next.js that the component uses client-side logic (e.g., window.location.href, form interaction).
+"use client";
+
+const contactDetails = [
+  {
+    title: "Email",
+    value: "harshanaeshan2023@gmail.com",
+    note: "Best for bug reports, longer questions, and thoughtful feedback.",
+  },
+  {
+    title: "Phone",
+    value: "+94 761 541 638",
+    note: "Useful when you want a faster conversation during working hours.",
+  },
+  {
+    title: "Location",
+    value: "Ambalangoda, Sri Lanka",
+    note: "Built to support better rest and healthier routines every day.",
+  },
+];
+
+const supportPoints = [
+  "Product feedback and improvement ideas",
+  "Help with sign-in or tracking issues",
+  "General support about sleep records",
+];
 
 const ContactPage = () => {
-  //Creates a functional React component named ContactPage
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const name = formData.get("name")?.toString().trim() ?? "";
+    const email = formData.get("email")?.toString().trim() ?? "";
+    const message = formData.get("message")?.toString().trim() ?? "";
+
+    const subject = encodeURIComponent(`Message from ${name}`);
+    const body = encodeURIComponent(`Email: ${email}\n\n${message}`);
+
+    window.location.href = `mailto:harshanaeshan2002@outlook.com?subject=${subject}&body=${body}`;
+  };
+
   return (
-    <div className="font-sans bg-gray-100 text-gray-800">
-      {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center py-16 px-8 bg-gray-100">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent">
-          Contact SleepTracker
-        </h1>
-        <p className="text-lg md:text-xl bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent">
-          Have questions or need help? Get in touch with us!
-        </p>
-      </section>
+    <main className="min-h-screen bg-[#f6f9fc] text-slate-900">
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-8 lg:py-20">
+        <div className="mb-10 max-w-3xl">
+          <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
+            Contact SleepTracker
+          </span>
+          <h1 className="mt-5 text-4xl font-bold leading-tight sm:text-5xl">
+            We&apos;re here to help with your sleep tracking experience.
+          </h1>
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+            Reach out for support, feedback, or questions. Everything on this
+            page is designed to make contacting us feel simple and clear.
+          </p>
+        </div>
 
-      {/* Contact Form Section */}
-      <section className="py-16 px-8 bg-white">
-        {" "}
-        {/* py-16 px-8: padding top/bottom and sides */}
-        <h2 className="text-3xl font-bold text-center mb-8">
-          Get in Touch
-        </h2>{" "}
-        {/* mb-8: adds spacing below heading. */}
-        <form
-          className="max-w-3xl mx-auto space-y-6"
-          //max-w-3xl: limits the form width to make it centered and tidy.
-          //mx-auto: horizontally center the form.
-          //space-y-6: vertical spacing between form fields.
+        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <section className="space-y-6">
+            <div className="grid gap-4">
+              {contactDetails.map((detail) => (
+                <div
+                  key={detail.title}
+                  className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
+                    {detail.title}
+                  </p>
+                  <h2 className="mt-3 text-2xl font-bold leading-tight text-slate-900">
+                    {detail.value}
+                  </h2>
+                  <p className="mt-3 text-base leading-7 text-slate-600">
+                    {detail.note}
+                  </p>
+                </div>
+              ))}
+            </div>
 
-          onSubmit={(e) => {
-            e.preventDefault(); // prevents the page from refreshing
-            const name = (document.getElementById("name") as HTMLInputElement)
-              ?.value;
-            const email = (document.getElementById("email") as HTMLInputElement)
-              ?.value;
-            const message = (
-              document.getElementById("message") as HTMLTextAreaElement
-            )?.value;
-            const mailtoLink = `mailto:harshanaeshan2002@outlook.com?subject=Message from ${name}&body=Email: ${email}%0D%0A%0D%0A${message}`;
-            {
-              /*?subject=Message from Eshan 
-              &body=Email: ${email}%0D%0A%0D%0A${message} --> This defines the body content of the email.
+            <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700">
+                What we can help with
+              </p>
+              <h2 className="mt-3 text-2xl font-bold text-slate-900">
+                Common reasons people contact us.
+              </h2>
+              <p className="mt-3 text-base leading-7 text-slate-600">
+                Choose the topic that matches your issue or idea, then send us
+                a message with a little context.
+              </p>
 
-              Email: ${email}: inserts the user’s email address.
-              %0D%0A: this is a newline in URL encoding.
-              %0D = Carriage Return (\r)
-              %0A = Line Feed (\n)
-              So %0D%0A%0D%0A = Two line breaks (empty line)
-              ${message}: inserts the actual user message
+              <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                {supportPoints.map((point, index) => (
+                  <div
+                    key={point}
+                    className="rounded-[1.5rem] bg-slate-50 p-5 ring-1 ring-slate-200"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 text-sm font-semibold text-sky-700">
+                      {index + 1}
+                    </div>
+                    <p className="mt-4 text-sm font-semibold leading-6 text-slate-900">
+                      {point}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
 
-              mailto:harshanaeshan2002@outlook.com?subject=Message from Eshan&body=Email: eshan@example.com
-              I love your app
+          <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+            <div className="mb-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700">
+                Send a message
+              </p>
+              <h2 className="mt-3 text-3xl font-bold text-slate-900">
+                Start your email draft here.
+              </h2>
+              <p className="mt-3 max-w-xl text-base leading-7 text-slate-600">
+                Fill in your details below. When you submit, your default email
+                app will open with your message ready to send.
+              </p>
+            </div>
 
-              */
-            }
+            <form className="space-y-5" onSubmit={handleSubmit}>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <label className="block">
+                  <span className="mb-2 block text-sm font-medium text-slate-700">
+                    Name
+                  </span>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                    className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+                  />
+                </label>
 
-            // Redirects to user's email client
-            window.location.href = mailtoLink;
-          }}
-        >
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
-              placeholder="Your Name"
-              required
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
-              placeholder="Your Email"
-              required
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
-              placeholder="Your Message"
-              required
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white px-4 py-2 rounded-md font-medium shadow-md cursor-pointer"
-          >
-            Send Message
-          </button>
-        </form>
-      </section>
+                <label className="block">
+                  <span className="mb-2 block text-sm font-medium text-slate-700">
+                    Email
+                  </span>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                    className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+                  />
+                </label>
+              </div>
 
-      {/* Contact Information Section */}
-      <section className="py-16 px-8 bg-gray-100">
-        <h2 className="text-3xl font-bold text-center mb-8">
-          Contact Information
-        </h2>
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div>
-            <h3 className="text-xl font-bold mb-2">Email</h3>
-            <p className="text-gray-600">harshanaeshan2023@gmail.com</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-2">Phone</h3>
-            <p className="text-gray-600">+94 76154...</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-2">Address</h3>
-            <p className="text-gray-600">Ambalangoda, Sri Lanka</p>
-          </div>
+              <label className="block">
+                <span className="mb-2 block text-sm font-medium text-slate-700">
+                  Message
+                </span>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={8}
+                  placeholder="Tell us what you need help with."
+                  required
+                  className="w-full rounded-[1.5rem] border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+                />
+              </label>
+
+              <div className="rounded-[1.5rem] bg-slate-50 px-5 py-4 text-sm leading-6 text-slate-600 ring-1 ring-slate-200">
+                When you submit, your default email app opens with the subject
+                and message already prepared.
+              </div>
+
+              <button
+                type="submit"
+                className="inline-flex w-full items-center justify-center rounded-full bg-sky-700 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-sky-800 focus:outline-none focus:ring-4 focus:ring-sky-200"
+              >
+                Open Email Draft
+              </button>
+            </form>
+          </section>
         </div>
       </section>
-    </div>
+    </main>
   );
 };
 

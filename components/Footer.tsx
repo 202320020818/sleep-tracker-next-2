@@ -2,46 +2,64 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="border-t-2 border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          {/* Logo and Tagline */}
-          <div className="text-center md:text-left mb-4 md:mb-0">
-            <h2 className="text-lg font-bold bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent">
+    <footer className="border-t border-slate-200 bg-[#f8fbfd]">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-start">
+          <div className="max-w-md">
+            <div className="inline-flex rounded-full border border-sky-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
               SleepTracker
+            </div>
+            <h2 className="mt-5 text-2xl font-bold text-slate-900">
+              Better sleep starts with better awareness.
             </h2>
-            <p className="text-gray-600 text-sm">
-              Track your sleep, improve your health.
+            <p className="mt-4 text-sm leading-7 text-slate-600">
+              Track your sleep, understand your habits, and build healthier
+              routines with a calmer and clearer experience.
             </p>
           </div>
 
-          {/* Navigation Links */}
-          <div className="flex space-x-4">
-            <Link
-              href="/"
-              className="text-gray-700 hover:text-purple-600 text-sm font-medium"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-gray-700 hover:text-purple-600 text-sm font-medium"
-            >
-              About
-            </Link>
-            <Link
-              href="/contact"
-              className="text-gray-700 hover:text-purple-600 text-sm font-medium"
-            >
-              Contact
-            </Link>
+          <div className="grid gap-8 sm:grid-cols-2">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">
+                Navigation
+              </p>
+              <div className="mt-4 flex flex-col gap-3">
+                <Link
+                  href="/"
+                  className="text-sm font-medium text-slate-600 transition hover:text-sky-700"
+                >
+                  Home
+                </Link>
+                <Link
+                  href="/about"
+                  className="text-sm font-medium text-slate-600 transition hover:text-sky-700"
+                >
+                  About
+                </Link>
+                <Link
+                  href="/contact"
+                  className="text-sm font-medium text-slate-600 transition hover:text-sky-700"
+                >
+                  Contact
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">
+                Quick Note
+              </p>
+              <p className="mt-4 text-sm leading-7 text-slate-600">
+                Designed to make sleep tracking feel simple, helpful, and easy
+                to return to every day.
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-8 text-center text-gray-500 text-sm">
-          © {new Date().getFullYear()} SleepTracker. All rights reserved.{" "}
-          {/*update this to your current year*/}
+        <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} SleepTracker. All rights reserved.</p>
+          <p>Track sleep. Build better routines. Feel more rested.</p>
         </div>
       </div>
     </footer>
