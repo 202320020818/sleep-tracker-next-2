@@ -1,17 +1,9 @@
 import { Prisma } from "@prisma/client";
 import { redirect } from "next/navigation";
 import AddExerciseRecord from "@/components/AddExerciseRecord";
-import deleteExerciseRecord from "@/app/actions/deleteExerciseRecord";
+import ExerciseEntryCard from "@/components/ExerciseEntryCard";
 import { db } from "@/lib/db";
 import { checkUser } from "@/lib/checkUser";
-
-const progressColors: Record<string, string> = {
-  "Easy Start": "border-amber-200 bg-amber-50 text-amber-700",
-  "On Track": "border-sky-200 bg-sky-50 text-sky-700",
-  "Strong Day": "border-emerald-200 bg-emerald-50 text-emerald-700",
-  "Recovery Focus": "border-violet-200 bg-violet-50 text-violet-700",
-  Completed: "border-slate-200 bg-slate-100 text-slate-700",
-};
 
 export default async function ExercisePage() {
   const user = await checkUser();
@@ -102,7 +94,10 @@ export default async function ExercisePage() {
 
           <AddExerciseRecord />
 
-          <section className="rounded-[2.25rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+          <section
+            id="saved-exercises"
+            className="rounded-[2.25rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8 scroll-mt-28"
+          >
             <div className="flex flex-col gap-3 border-b border-slate-100 pb-6">
               <div className="inline-flex w-fit rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
                 Saved Exercises
@@ -138,69 +133,9 @@ export default async function ExercisePage() {
                 </p>
               </div>
             ) : (
-              <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
                 {exercises.map((exercise) => (
-                  <article
-                    key={exercise.id}
-                    className="overflow-hidden rounded-[1.9rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(148,163,184,0.18)]"
-                  >
-                    <div className="relative aspect-[4/3] bg-slate-100">
-                      <img
-                        src={exercise.imageUrl}
-                        alt={exercise.title}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-
-                    <div className="p-5">
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-700">
-                            {new Date(exercise.date).toLocaleDateString()}
-                          </p>
-                          <h3 className="mt-2 text-2xl font-bold leading-tight text-slate-900">
-                            {exercise.title}
-                          </h3>
-                        </div>
-                        <span
-                          className={`rounded-full border px-3 py-1 text-xs font-semibold ${
-                            progressColors[exercise.progress] ||
-                            "border-slate-200 bg-slate-50 text-slate-700"
-                          }`}
-                        >
-                          {exercise.progress}
-                        </span>
-                      </div>
-
-                      <div className="mt-5 flex items-center justify-between rounded-[1.25rem] bg-slate-50 px-4 py-3 ring-1 ring-slate-200">
-                        <span className="text-sm font-medium text-slate-500">
-                          Duration
-                        </span>
-                        <span className="text-lg font-semibold text-slate-900">
-                          {exercise.duration}
-                        </span>
-                      </div>
-
-                      <p className="mt-4 text-sm leading-7 text-slate-600">
-                        {exercise.description}
-                      </p>
-
-                      <form
-                        action={async () => {
-                          "use server";
-                          await deleteExerciseRecord(exercise.id);
-                        }}
-                        className="mt-5"
-                      >
-                        <button
-                          type="submit"
-                          className="inline-flex w-full items-center justify-center rounded-full border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-100"
-                        >
-                          Delete Entry
-                        </button>
-                      </form>
-                    </div>
-                  </article>
+                  <ExerciseEntryCard key={exercise.id} exercise={exercise} />
                 ))}
               </div>
             )}

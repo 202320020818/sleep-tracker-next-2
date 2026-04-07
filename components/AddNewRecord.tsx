@@ -32,9 +32,9 @@ const sleepOptions = [
 ];
 
 const amountLabels = [
-  { label: "Short", value: "0 - 4 hrs" },
-  { label: "Average", value: "5 - 7 hrs" },
-  { label: "Great", value: "8 - 12 hrs" },
+  { label: "Short", value: "0 - 4 hrs", min: 0, max: 4 },
+  { label: "Average", value: "5 - 7 hrs", min: 5, max: 7 },
+  { label: "Great", value: "8 - 12 hrs", min: 8, max: 12 },
 ];
 
 const AddRecord = () => {
@@ -44,6 +44,8 @@ const AddRecord = () => {
   const [alertType, setAlertType] = useState<"success" | "error" | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [sleepQuality, setSleepQuality] = useState("Good Sleep");
+  const activeAmountLabel =
+    amount <= 4 ? "Short" : amount <= 7 ? "Average" : "Great";
 
   const clientAction = async (formData: FormData) => {
     setIsLoading(true);
@@ -168,8 +170,8 @@ const AddRecord = () => {
             />
           </div>
 
-          <div className="rounded-[1.75rem] bg-slate-50 p-5 ring-1 ring-slate-200">
-            <div className="flex items-center justify-between gap-4">
+          <div className="rounded-[1.75rem] border border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#f1f6fc_100%)] p-5 shadow-sm">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <label
                   htmlFor="amount"
@@ -181,33 +183,60 @@ const AddRecord = () => {
                   Select between 0 and 12 hours in steps of 0.5.
                 </p>
               </div>
-              <div className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-sky-700 ring-1 ring-slate-200">
+              <div className="inline-flex items-center gap-2 self-start rounded-full border border-sky-200 bg-white px-4 py-2 text-sm font-semibold text-sky-700 shadow-sm">
+                <span className="h-2.5 w-2.5 rounded-full bg-sky-500" />
                 {amount} hours
               </div>
             </div>
 
-            <input
-              type="range"
-              name="amount"
-              id="amount"
-              min="0"
-              max="12"
-              step="0.5"
-              value={amount}
-              onChange={(event) => setAmount(parseFloat(event.target.value))}
-              className="mt-6 w-full cursor-pointer accent-sky-600"
-            />
+            <div className="mt-5 rounded-[1.5rem] border border-slate-200 bg-white px-4 py-5">
+              <div className="mb-4 flex items-center justify-between text-xs font-medium text-slate-400">
+                <span>0h</span>
+                <span>12h</span>
+              </div>
+
+              <input
+                type="range"
+                name="amount"
+                id="amount"
+                min="0"
+                max="12"
+                step="0.5"
+                value={amount}
+                onChange={(event) => setAmount(parseFloat(event.target.value))}
+                className="w-full cursor-pointer accent-slate-900"
+              />
+
+              <div className="mt-4 flex items-center justify-between rounded-full bg-sky-50 px-4 py-2 text-sm">
+                <span className="font-medium text-slate-600">Selected range</span>
+                <span className="font-semibold text-sky-700">
+                  {activeAmountLabel}
+                </span>
+              </div>
+            </div>
 
             <div className="mt-4 grid grid-cols-3 gap-3">
               {amountLabels.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-2xl bg-white px-4 py-3 text-center ring-1 ring-slate-200"
+                  className={`rounded-2xl px-4 py-3 text-center transition ${
+                    amount >= item.min && amount <= item.max
+                      ? "border border-sky-200 bg-sky-50 shadow-sm"
+                      : "border border-slate-200 bg-white"
+                  }`}
                 >
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-700">
+                  <p
+                    className={`text-xs font-semibold uppercase tracking-[0.18em] ${
+                      amount >= item.min && amount <= item.max
+                        ? "text-sky-700"
+                        : "text-slate-500"
+                    }`}
+                  >
                     {item.label}
                   </p>
-                  <p className="mt-1 text-sm text-slate-600">{item.value}</p>
+                  <p className="mt-1 text-sm font-medium text-slate-700">
+                    {item.value}
+                  </p>
                 </div>
               ))}
             </div>

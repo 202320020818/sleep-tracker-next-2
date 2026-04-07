@@ -15,22 +15,37 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8 lg:py-16">
         <div className="grid gap-6">
           <section className="overflow-hidden rounded-[2.25rem] border border-slate-200 bg-white shadow-sm">
-            <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+            <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.35fr_0.65fr] lg:items-start lg:p-10">
               <div>
                 <div className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
                   Welcome Back
                 </div>
-                <h1 className="mt-5 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl lg:text-5xl">
-                  Hi {user.firstName || "there"}, let&apos;s keep your sleep
-                  routine on track.
+                <h1 className="mt-5 max-w-3xl text-3xl font-bold leading-[1.08] text-slate-900 sm:text-4xl lg:text-[3.2rem]">
+                  Hi {user.firstName || "there"}, keep your sleep routine clear,
+                  steady, and easy to manage.
                 </h1>
-                <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-                  Log how you slept, keep your routine visible, and build
-                  better nights with steady progress over time.
+                <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+                  Track each night, review your progress, and keep your healthy
+                  routine visible in one place.
                 </p>
 
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <Link
+                    href="/records"
+                    className="inline-flex min-w-[180px] items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-700"
+                  >
+                    View My Records
+                  </Link>
+                  <Link
+                    href="/exercise"
+                    className="inline-flex min-w-[180px] items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700"
+                  >
+                    Go to Exercise
+                  </Link>
+                </div>
+
                 <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                  <div className="rounded-[1.5rem] bg-slate-50 p-4 ring-1 ring-slate-200">
+                  <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-4">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                       Joined
                     </p>
@@ -39,7 +54,7 @@ export default async function HomePage() {
                     </p>
                   </div>
 
-                  <div className="rounded-[1.5rem] bg-slate-50 p-4 ring-1 ring-slate-200">
+                  <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-4">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                       Last Active
                     </p>
@@ -50,7 +65,7 @@ export default async function HomePage() {
                     </p>
                   </div>
 
-                  <div className="rounded-[1.5rem] bg-slate-50 p-4 ring-1 ring-slate-200">
+                  <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-4">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                       Focus
                     </p>
@@ -59,31 +74,52 @@ export default async function HomePage() {
                     </p>
                   </div>
                 </div>
-
-                <div className="mt-8">
-                  <Link
-                    href="/records"
-                    className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700"
-                  >
-                    View My Records
-                  </Link>
-                </div>
               </div>
 
               <div className="flex justify-center lg:justify-end">
-                <div className="flex flex-col items-center rounded-[2rem] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-6 text-center shadow-sm">
-                  <img
-                    src={user.imageUrl}
-                    alt={`${user.firstName || "User"} profile`}
-                    className="h-32 w-32 rounded-full object-cover shadow-md ring-4 ring-white sm:h-40 sm:w-40"
-                  />
-                  <div className="mt-4">
-                    <p className="text-xl font-bold text-slate-900">
-                      {user.firstName || "SleepTracker User"}
+                <div className="w-full max-w-[320px] rounded-[2rem] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-6 shadow-sm">
+                  <div className="rounded-[1.5rem] border border-sky-100 bg-sky-50/70 px-4 py-3">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
+                      Profile Snapshot
                     </p>
-                    <p className="mt-1 text-sm text-slate-500">
-                      Keep showing up for better rest.
+                    <p className="mt-1 text-sm text-slate-600">
+                      Your routine looks better when it stays visible every day.
                     </p>
+                  </div>
+
+                  <div className="mt-5 flex flex-col items-center text-center">
+                    <img
+                      src={user.imageUrl}
+                      alt={`${user.firstName || "User"} profile`}
+                      className="h-28 w-28 rounded-full object-cover shadow-md ring-4 ring-white sm:h-32 sm:w-32"
+                    />
+                    <div className="mt-4">
+                      <p className="text-2xl font-bold text-slate-900">
+                        {user.firstName || "SleepTracker User"}
+                      </p>
+                      <p className="mt-1 text-sm text-slate-500">
+                        Keep showing up for better rest.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 grid gap-3">
+                    <div className="rounded-[1.25rem] border border-slate-200 bg-white px-4 py-3">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                        Routine Goal
+                      </p>
+                      <p className="mt-1 text-sm font-semibold text-slate-900">
+                        Build steady, healthier nights
+                      </p>
+                    </div>
+                    <div className="rounded-[1.25rem] border border-slate-200 bg-white px-4 py-3">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                        Next Step
+                      </p>
+                      <p className="mt-1 text-sm font-semibold text-slate-900">
+                        Add today&apos;s sleep record below
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

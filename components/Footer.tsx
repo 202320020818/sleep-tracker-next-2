@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-start">
           <div className="max-w-md">
             <div className="inline-flex rounded-full border border-sky-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
-              SleepTracker
+              Habit Tracker
             </div>
             <h2 className="mt-5 text-2xl font-bold text-slate-900">
               Better sleep starts with better awareness.
@@ -64,7 +64,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} SleepTracker. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Habit Tracker. All rights reserved.</p>
           <p>Track sleep. Build better routines. Feel more rested.</p>
         </div>
       </div>

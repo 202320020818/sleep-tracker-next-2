@@ -20,10 +20,10 @@ export default function Navbar() {
           </div>
           <div className="leading-none">
             <p className="text-[1.75rem] font-bold tracking-tight text-slate-900">
-              SleepTracker
+              Habit Tracker
             </p>
             <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-700">
-              Sleep Better Daily
+              Better Routines Daily
             </p>
           </div>
         </Link>
