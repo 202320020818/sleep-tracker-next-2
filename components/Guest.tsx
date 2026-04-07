@@ -59,7 +59,7 @@ const features = [
 
 const Guest = () => {
   return (
-    <main className="min-h-screen bg-[#f5f8fc] text-slate-900">
+    <main className="min-h-screen bg-[#f5f8fc] text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-8 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="max-w-2xl">
@@ -69,7 +69,7 @@ const Guest = () => {
             <h1 className="mt-5 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               A cleaner way to track your nights and improve your mornings.
             </h1>
-            <p className="mt-6 text-lg leading-8 text-slate-600">
+            <p className="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
               SleepTracker helps you log your sleep, understand your habits,
               and build a healthier routine with clear insight and a calm
               experience.
@@ -83,7 +83,7 @@ const Guest = () => {
               </SignInButton>
               <Link
                 href="/about"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500 dark:hover:text-sky-300"
               >
                 Learn More
               </Link>
@@ -93,12 +93,12 @@ const Guest = () => {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm"
+                  className="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900"
                 >
-                  <h2 className="text-base font-semibold text-slate-900">
+                  <h2 className="text-base font-semibold text-slate-900 dark:text-white">
                     {feature.title}
                   </h2>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                  <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
                     {feature.description}
                   </p>
                 </div>
@@ -106,7 +106,7 @@ const Guest = () => {
             </div>
           </div>
 
-          <div className="rounded-[2.25rem] border border-slate-200 bg-white p-4 shadow-[0_24px_80px_rgba(148,163,184,0.16)]">
+          <div className="rounded-[2.25rem] border border-slate-200 bg-white p-4 shadow-[0_24px_80px_rgba(148,163,184,0.16)] dark:border-slate-800 dark:bg-slate-900">
             <div className="grid auto-rows-[170px] gap-4 sm:grid-cols-2 md:auto-rows-[190px]">
               {heroImages.map((image) => (
                 <div
@@ -126,16 +126,16 @@ const Guest = () => {
           </div>
         </div>
 
-        <section className="mt-12 rounded-[2.25rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+        <section className="mt-12 rounded-[2.25rem] border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-10">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700">
                 Sleep Inspiration
               </p>
-              <h2 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-bold text-slate-900 dark:text-white sm:text-4xl">
                 A visual space built around calm, rest, and healthier routines.
               </h2>
-              <p className="mt-4 text-base leading-7 text-slate-600">
+              <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">
                 Your 7 uploaded images are now used across the home page to
                 make the experience feel more alive and visually complete.
               </p>
@@ -143,7 +143,7 @@ const Guest = () => {
 
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-700"
+              className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-700 dark:bg-sky-600 dark:hover:bg-sky-500"
             >
               Contact Us
             </Link>
@@ -153,7 +153,7 @@ const Guest = () => {
             {galleryImages.map((image) => (
               <div
                 key={image.src}
-                className="relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-100"
+                className="relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-800"
               >
                 <div className="relative aspect-[4/5]">
                   <Image

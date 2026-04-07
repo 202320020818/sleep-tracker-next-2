@@ -9,6 +9,13 @@ interface DeleteExerciseResult {
   error?: string;
 }
 
+type ExerciseDeleteManyArgs = {
+  where: {
+    id: string;
+    userId: string;
+  };
+};
+
 async function deleteExerciseRecord(
   exerciseId: string
 ): Promise<DeleteExerciseResult> {
@@ -21,7 +28,7 @@ async function deleteExerciseRecord(
   try {
     const exerciseModel = (db as typeof db & {
       exercise?: {
-        deleteMany: Function;
+        deleteMany: (args: ExerciseDeleteManyArgs) => Promise<unknown>;
       };
     }).exercise;
 

@@ -9,6 +9,18 @@ interface ExerciseResult {
   error?: string;
 }
 
+type ExerciseCreateArgs = {
+  data: {
+    title: string;
+    description: string;
+    duration: string;
+    progress: string;
+    imageUrl: string;
+    date: Date;
+    userId: string;
+  };
+};
+
 async function addExerciseRecord(formData: FormData): Promise<ExerciseResult> {
   const titleValue = formData.get("title");
   const descriptionValue = formData.get("description");
@@ -37,7 +49,7 @@ async function addExerciseRecord(formData: FormData): Promise<ExerciseResult> {
   try {
     const exerciseModel = (db as typeof db & {
       exercise?: {
-        create: Function;
+        create: (args: ExerciseCreateArgs) => Promise<unknown>;
       };
     }).exercise;
 

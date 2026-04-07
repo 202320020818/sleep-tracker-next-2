@@ -113,8 +113,8 @@ export default function ExerciseEntryCard({
   };
 
   return (
-    <article className="overflow-hidden rounded-[1.1rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(148,163,184,0.14)]">
-      <div className="relative aspect-[4/3.7] bg-slate-100">
+    <article className="overflow-hidden rounded-[1.1rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(148,163,184,0.14)] dark:border-slate-800 dark:bg-slate-900">
+      <div className="relative aspect-[4/3.7] bg-slate-100 dark:bg-slate-800">
         <img
           src={imagePreview}
           alt={formValues.title}
@@ -134,7 +134,7 @@ export default function ExerciseEntryCard({
                   title: event.target.value,
                 }))
               }
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 text-slate-900 outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+              className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:focus:ring-sky-900"
             />
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -147,7 +147,7 @@ export default function ExerciseEntryCard({
                     date: event.target.value,
                   }))
                 }
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 text-slate-900 outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+                className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:focus:ring-sky-900"
               />
               <input
                 type="text"
@@ -158,7 +158,7 @@ export default function ExerciseEntryCard({
                     duration: event.target.value,
                   }))
                 }
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 text-slate-900 outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+                className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:focus:ring-sky-900"
               />
             </div>
 
@@ -170,7 +170,7 @@ export default function ExerciseEntryCard({
                   progress: event.target.value,
                 }))
               }
-              className="w-full rounded-2xl border border-slate-300 px-4 py-3 text-slate-900 outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+              className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:focus:ring-sky-900"
             >
               {progressOptions.map((option) => (
                 <option key={option} value={option}>
@@ -179,12 +179,12 @@ export default function ExerciseEntryCard({
               ))}
             </select>
 
-            <div className="rounded-[1.5rem] border border-dashed border-slate-300 bg-slate-50 p-4">
+            <div className="rounded-[1.5rem] border border-dashed border-slate-300 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800">
               <input
                 type="file"
                 accept="image/*"
                 onChange={handleImageChange}
-                className="block w-full text-sm text-slate-600 file:mr-4 file:rounded-full file:border-0 file:bg-sky-700 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-sky-800"
+                className="block w-full text-sm text-slate-600 dark:text-slate-300 file:mr-4 file:rounded-full file:border-0 file:bg-sky-700 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-sky-800"
               />
             </div>
 
@@ -197,7 +197,7 @@ export default function ExerciseEntryCard({
                   description: event.target.value,
                 }))
               }
-              className="w-full rounded-[1.5rem] border border-slate-300 px-4 py-3 text-slate-900 outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+              className="w-full rounded-[1.5rem] border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:focus:ring-sky-900"
             />
 
             <div className="grid gap-3 sm:grid-cols-2">
@@ -223,7 +223,7 @@ export default function ExerciseEntryCard({
                     date: new Date(exercise.date).toISOString().split("T")[0],
                   });
                 }}
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500 dark:hover:text-sky-300"
               >
                 Cancel
               </button>
@@ -236,7 +236,7 @@ export default function ExerciseEntryCard({
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-700">
                   {new Date(exercise.date).toLocaleDateString()}
                 </p>
-                <h3 className="mt-1 text-base font-bold leading-tight text-slate-900">
+                <h3 className="mt-1 text-base font-bold leading-tight text-slate-900 dark:text-white">
                   {exercise.title}
                 </h3>
               </div>
@@ -250,16 +250,16 @@ export default function ExerciseEntryCard({
               </span>
             </div>
 
-            <div className="mt-2.5 flex items-center justify-between rounded-[0.9rem] bg-slate-50 px-2.5 py-2 ring-1 ring-slate-200">
-              <span className="text-xs font-medium uppercase tracking-[0.14em] text-slate-500">
+            <div className="mt-2.5 flex items-center justify-between rounded-[0.9rem] bg-slate-50 px-2.5 py-2 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+              <span className="text-xs font-medium uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
                 Duration
               </span>
-              <span className="text-sm font-semibold text-slate-900">
+              <span className="text-sm font-semibold text-slate-900 dark:text-white">
                 {exercise.duration}
               </span>
             </div>
 
-            <p className="mt-2 text-xs leading-5 text-slate-600 line-clamp-1">
+            <p className="mt-2 line-clamp-1 text-xs leading-5 text-slate-600 dark:text-slate-300">
               {exercise.description}
             </p>
 
@@ -270,7 +270,7 @@ export default function ExerciseEntryCard({
                   setIsEditing(true);
                   setErrorMessage(null);
                 }}
-                className="inline-flex h-8 items-center justify-center rounded-full border border-slate-300 bg-white px-2.5 text-xs font-semibold leading-none text-slate-700 transition hover:border-sky-300 hover:text-sky-700"
+                className="inline-flex h-8 items-center justify-center rounded-full border border-slate-300 bg-white px-2.5 text-xs font-semibold leading-none text-slate-700 transition hover:border-sky-300 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500 dark:hover:text-sky-300"
               >
                 Edit Entry
               </button>
@@ -287,7 +287,7 @@ export default function ExerciseEntryCard({
         )}
 
         {errorMessage ? (
-          <div className="mt-4 rounded-[1.25rem] border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+          <div className="mt-4 rounded-[1.25rem] border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700 dark:border-red-900 dark:bg-red-950/40">
             {errorMessage}
           </div>
         ) : null}

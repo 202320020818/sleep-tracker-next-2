@@ -1,8 +1,274 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  --accent-50: #f0f9ff;
+  --accent-100: #e0f2fe;
+  --accent-200: #bae6fd;
+  --accent-300: #7dd3fc;
+  --accent-400: #38bdf8;
+  --accent-500: #0ea5e9;
+  --accent-600: #0284c7;
+  --accent-700: #0369a1;
+  --accent-800: #075985;
+  --accent-900: #0c4a6e;
+  --accent-950: #082f49;
   --background: #ffffff;
   --foreground: #171717;
+  --surface: #ffffff;
+  --surface-soft: #f8fafc;
+  --surface-accent: color-mix(in srgb, var(--accent-50) 72%, white);
+  --surface-accent-strong: color-mix(in srgb, var(--accent-100) 78%, white);
+  --border: color-mix(in srgb, var(--accent-200) 52%, #cbd5e1);
+  --border-strong: color-mix(in srgb, var(--accent-300) 46%, #94a3b8);
+}
+
+html[data-accent="red"] {
+  --accent-50: #fef2f2;
+  --accent-100: #fee2e2;
+  --accent-200: #fecaca;
+  --accent-300: #fca5a5;
+  --accent-400: #f87171;
+  --accent-500: #ef4444;
+  --accent-600: #dc2626;
+  --accent-700: #b91c1c;
+  --accent-800: #991b1b;
+  --accent-900: #7f1d1d;
+  --accent-950: #450a0a;
+}
+
+html[data-accent="yellow"] {
+  --accent-50: #fefce8;
+  --accent-100: #fef9c3;
+  --accent-200: #fef08a;
+  --accent-300: #fde047;
+  --accent-400: #facc15;
+  --accent-500: #eab308;
+  --accent-600: #ca8a04;
+  --accent-700: #a16207;
+  --accent-800: #854d0e;
+  --accent-900: #713f12;
+  --accent-950: #422006;
+}
+
+html[data-accent="green"] {
+  --accent-50: #f0fdf4;
+  --accent-100: #dcfce7;
+  --accent-200: #bbf7d0;
+  --accent-300: #86efac;
+  --accent-400: #4ade80;
+  --accent-500: #22c55e;
+  --accent-600: #16a34a;
+  --accent-700: #15803d;
+  --accent-800: #166534;
+  --accent-900: #14532d;
+  --accent-950: #052e16;
+}
+
+html[data-accent="orange"] {
+  --accent-50: #fff7ed;
+  --accent-100: #ffedd5;
+  --accent-200: #fed7aa;
+  --accent-300: #fdba74;
+  --accent-400: #fb923c;
+  --accent-500: #f97316;
+  --accent-600: #ea580c;
+  --accent-700: #c2410c;
+  --accent-800: #9a3412;
+  --accent-900: #7c2d12;
+  --accent-950: #431407;
+}
+
+html[data-accent="black"] {
+  --accent-50: #f8fafc;
+  --accent-100: #f1f5f9;
+  --accent-200: #e2e8f0;
+  --accent-300: #cbd5e1;
+  --accent-400: #94a3b8;
+  --accent-500: #64748b;
+  --accent-600: #475569;
+  --accent-700: #334155;
+  --accent-800: #1e293b;
+  --accent-900: #0f172a;
+  --accent-950: #020617;
+}
+
+html[data-accent="blue"] {
+  --accent-50: #f0f9ff;
+  --accent-100: #e0f2fe;
+  --accent-200: #bae6fd;
+  --accent-300: #7dd3fc;
+  --accent-400: #38bdf8;
+  --accent-500: #0ea5e9;
+  --accent-600: #0284c7;
+  --accent-700: #0369a1;
+  --accent-800: #075985;
+  --accent-900: #0c4a6e;
+  --accent-950: #082f49;
+}
+
+.text-sky-700,
+.hover\:text-sky-700:hover,
+.dark .dark\:hover\:text-sky-300:hover,
+.dark .dark\:text-sky-300 {
+  color: var(--accent-700) !important;
+}
+
+.text-sky-500 {
+  color: var(--accent-500) !important;
+}
+
+.bg-sky-50,
+.hover\:bg-sky-50:hover {
+  background-color: var(--accent-50) !important;
+}
+
+.bg-sky-100 {
+  background-color: var(--accent-100) !important;
+}
+
+.bg-sky-500,
+.dark .dark\:bg-sky-500,
+.dark .dark\:hover\:bg-sky-500:hover {
+  background-color: var(--accent-500) !important;
+}
+
+.bg-sky-600,
+.dark .dark\:bg-sky-600,
+.hover\:bg-sky-600:hover {
+  background-color: var(--accent-600) !important;
+}
+
+.bg-sky-700,
+.hover\:bg-sky-700:hover,
+.file\:bg-sky-700::file-selector-button {
+  background-color: var(--accent-700) !important;
+}
+
+.hover\:bg-sky-800:hover,
+.file\:hover\:bg-sky-800:hover::file-selector-button {
+  background-color: var(--accent-800) !important;
+}
+
+.disabled\:bg-sky-400:disabled {
+  background-color: var(--accent-400) !important;
+}
+
+.border-sky-100 {
+  border-color: var(--accent-100) !important;
+}
+
+.border-sky-200,
+.hover\:border-sky-200:hover {
+  border-color: var(--accent-200) !important;
+}
+
+.hover\:border-sky-300:hover {
+  border-color: var(--accent-300) !important;
+}
+
+.border-sky-500,
+.focus\:border-sky-500:focus,
+.border-sky-600 {
+  border-color: var(--accent-500) !important;
+}
+
+.dark .dark\:border-sky-700,
+.dark .dark\:hover\:border-sky-700:hover {
+  border-color: var(--accent-700) !important;
+}
+
+.dark .dark\:border-sky-900 {
+  border-color: var(--accent-900) !important;
+}
+
+.bg-sky-50\/50 {
+  background-color: color-mix(in srgb, var(--accent-50) 50%, transparent) !important;
+}
+
+.bg-sky-50\/70 {
+  background-color: color-mix(in srgb, var(--accent-50) 70%, transparent) !important;
+}
+
+.dark .dark\:bg-sky-950\/40 {
+  background-color: color-mix(in srgb, var(--accent-950) 40%, transparent) !important;
+}
+
+.ring-sky-100,
+.focus\:ring-sky-100:focus {
+  --tw-ring-color: color-mix(in srgb, var(--accent-100) 100%, transparent) !important;
+}
+
+.ring-sky-200,
+.focus\:ring-sky-200:focus {
+  --tw-ring-color: color-mix(in srgb, var(--accent-200) 100%, transparent) !important;
+}
+
+.dark .dark\:ring-sky-950,
+.dark .dark\:focus\:ring-sky-900:focus {
+  --tw-ring-color: color-mix(in srgb, var(--accent-950) 100%, transparent) !important;
+}
+
+.accent-page {
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--accent-100) 55%, transparent) 0%, transparent 36%),
+    radial-gradient(circle at top right, color-mix(in srgb, var(--accent-50) 88%, transparent) 0%, transparent 34%),
+    linear-gradient(180deg, color-mix(in srgb, var(--accent-50) 42%, white) 0%, #f8fafc 100%);
+}
+
+.accent-card {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--surface-accent) 78%, white) 0%,
+    color-mix(in srgb, var(--surface) 92%, white) 100%
+  );
+  border-color: var(--border);
+  box-shadow: 0 18px 50px color-mix(in srgb, var(--accent-200) 14%, transparent);
+}
+
+.accent-card-strong {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--surface-accent-strong) 82%, white) 0%,
+    color-mix(in srgb, var(--surface-accent) 92%, white) 100%
+  );
+  border-color: var(--border-strong);
+}
+
+.accent-panel {
+  background: color-mix(in srgb, var(--accent-50) 68%, white);
+  border-color: var(--border);
+}
+
+.dark .accent-page {
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--accent-950) 34%, transparent) 0%, transparent 36%),
+    radial-gradient(circle at top right, color-mix(in srgb, var(--accent-900) 24%, transparent) 0%, transparent 32%),
+    linear-gradient(180deg, #020617 0%, color-mix(in srgb, var(--accent-950) 18%, #020617) 100%);
+}
+
+.dark .accent-card {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent-950) 24%, #0f172a) 0%,
+    color-mix(in srgb, var(--accent-950) 10%, #111827) 100%
+  );
+  border-color: color-mix(in srgb, var(--accent-900) 36%, #334155);
+  box-shadow: 0 18px 50px color-mix(in srgb, var(--accent-950) 28%, transparent);
+}
+
+.dark .accent-card-strong {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent-950) 32%, #0f172a) 0%,
+    color-mix(in srgb, var(--accent-900) 22%, #111827) 100%
+  );
+  border-color: color-mix(in srgb, var(--accent-900) 44%, #475569);
+}
+
+.dark .accent-panel {
+  background: color-mix(in srgb, var(--accent-950) 20%, #0f172a);
+  border-color: color-mix(in srgb, var(--accent-900) 32%, #334155);
 }
 
 @theme inline {
@@ -11,16 +277,27 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
-/*
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+.dark {
+  --background: #020617;
+  --foreground: #e2e8f0;
+  --surface: #0f172a;
+  --surface-soft: #111827;
+  --surface-accent: color-mix(in srgb, var(--accent-950) 18%, #0f172a);
+  --surface-accent-strong: color-mix(in srgb, var(--accent-900) 18%, #111827);
+  --border: #334155;
+  --border-strong: #475569;
 }
-*/
+
+html {
+  background: var(--background);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
 }

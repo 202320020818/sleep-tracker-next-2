@@ -2,17 +2,17 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-slate-200 bg-[#f8fbfd]">
+    <footer className="border-t border-slate-200 bg-[#f8fbfd] dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-start">
           <div className="max-w-md">
-            <div className="inline-flex rounded-full border border-sky-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
+            <div className="inline-flex rounded-full border border-sky-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700 dark:border-sky-900 dark:bg-slate-900">
               Habit Tracker
             </div>
-            <h2 className="mt-5 text-2xl font-bold text-slate-900">
+            <h2 className="mt-5 text-2xl font-bold text-slate-900 dark:text-white">
               Better sleep starts with better awareness.
             </h2>
-            <p className="mt-4 text-sm leading-7 text-slate-600">
+            <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">
               Track your sleep, understand your habits, and build healthier
               routines with a calmer and clearer experience.
             </p>
@@ -26,25 +26,25 @@ const Footer = () => {
               <div className="mt-4 flex flex-col gap-3">
                 <Link
                   href="/"
-                  className="text-sm font-medium text-slate-600 transition hover:text-sky-700"
+                className="text-sm font-medium text-slate-600 transition hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-300"
                 >
                   Home
                 </Link>
                 <Link
                   href="/about"
-                  className="text-sm font-medium text-slate-600 transition hover:text-sky-700"
+                className="text-sm font-medium text-slate-600 transition hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-300"
                 >
                   About
                 </Link>
                 <Link
                   href="/exercise"
-                  className="text-sm font-medium text-slate-600 transition hover:text-sky-700"
+                className="text-sm font-medium text-slate-600 transition hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-300"
                 >
                   Exercise
                 </Link>
                 <Link
                   href="/contact"
-                  className="text-sm font-medium text-slate-600 transition hover:text-sky-700"
+                className="text-sm font-medium text-slate-600 transition hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-300"
                 >
                   Contact
                 </Link>
@@ -55,7 +55,7 @@ const Footer = () => {
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-700">
                 Quick Note
               </p>
-              <p className="mt-4 text-sm leading-7 text-slate-600">
+              <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">
                 Designed to make sleep tracking feel simple, helpful, and easy
                 to return to every day.
               </p>
@@ -63,7 +63,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-3 border-t border-slate-200 pt-6 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Habit Tracker. All rights reserved.</p>
           <p>Track sleep. Build better routines. Feel more rested.</p>
         </div>

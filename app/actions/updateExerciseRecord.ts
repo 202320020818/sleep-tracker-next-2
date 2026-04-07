@@ -9,6 +9,21 @@ interface UpdateExerciseResult {
   error?: string;
 }
 
+type ExerciseUpdateManyArgs = {
+  where: {
+    id: string;
+    userId: string;
+  };
+  data: {
+    title: string;
+    description: string;
+    duration: string;
+    progress: string;
+    imageUrl: string;
+    date: Date;
+  };
+};
+
 async function updateExerciseRecord(
   exerciseId: string,
   formData: FormData
@@ -40,7 +55,7 @@ async function updateExerciseRecord(
   try {
     const exerciseModel = (db as typeof db & {
       exercise?: {
-        updateMany: Function;
+        updateMany: (args: ExerciseUpdateManyArgs) => Promise<unknown>;
       };
     }).exercise;
 

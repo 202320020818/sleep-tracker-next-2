@@ -71,26 +71,26 @@ const AddRecord = () => {
   };
 
   return (
-    <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-      <div className="flex flex-col gap-3 border-b border-slate-100 pb-6">
+    <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+      <div className="flex flex-col gap-3 border-b border-slate-100 pb-6 dark:border-slate-800">
         <div className="inline-flex w-fit rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
           New Sleep Record
         </div>
         <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <h3 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white sm:text-3xl">
               Track tonight&apos;s sleep in a cleaner way
             </h3>
-            <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+            <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
               Choose how your sleep felt, set the date, and log your hours in a
               few quick steps.
             </p>
           </div>
-          <div className="rounded-[1.5rem] bg-slate-50 px-4 py-3 ring-1 ring-slate-200">
+          <div className="rounded-[1.5rem] bg-slate-50 px-4 py-3 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
               Current hours
             </p>
-            <p className="mt-1 text-2xl font-bold text-slate-900">{amount}h</p>
+            <p className="mt-1 text-2xl font-bold text-slate-900 dark:text-white">{amount}h</p>
           </div>
         </div>
       </div>
@@ -105,10 +105,10 @@ const AddRecord = () => {
         className="mt-6 space-y-8"
       >
         <div>
-          <label className="block text-sm font-semibold text-slate-800">
+          <label className="block text-sm font-semibold text-slate-800 dark:text-slate-100">
             Sleep quality
           </label>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
             Pick the option that best matches how you felt after sleeping.
           </p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -122,23 +122,23 @@ const AddRecord = () => {
                   onClick={() => setSleepQuality(option.value)}
                   className={`rounded-[1.5rem] border p-4 text-left transition ${
                     isSelected
-                      ? "border-sky-500 bg-sky-50 shadow-[0_10px_30px_rgba(14,165,233,0.12)]"
-                      : "border-slate-200 bg-white hover:border-sky-200 hover:bg-slate-50"
+                      ? "border-sky-500 bg-sky-50 shadow-[0_10px_30px_rgba(14,165,233,0.12)] dark:bg-sky-950/40"
+                      : "border-slate-200 bg-white hover:border-sky-200 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:hover:border-sky-700 dark:hover:bg-slate-800"
                   }`}
                 >
                   <div className="flex items-center justify-between gap-3">
-                    <p className="text-base font-semibold text-slate-900">
+                    <p className="text-base font-semibold text-slate-900 dark:text-white">
                       {option.label}
                     </p>
                     <span
                       className={`h-4 w-4 rounded-full border ${
                         isSelected
-                          ? "border-sky-600 bg-sky-600 ring-4 ring-sky-100"
-                          : "border-slate-300 bg-white"
+                          ? "border-sky-600 bg-sky-600 ring-4 ring-sky-100 dark:ring-sky-950"
+                          : "border-slate-300 bg-white dark:border-slate-600 dark:bg-slate-900"
                       }`}
                     />
                   </div>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
                     {option.note}
                   </p>
                 </button>
@@ -149,14 +149,14 @@ const AddRecord = () => {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
-          <div className="rounded-[1.75rem] bg-slate-50 p-5 ring-1 ring-slate-200">
+          <div className="rounded-[1.75rem] bg-slate-50 p-5 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
             <label
               htmlFor="date"
-              className="block text-sm font-semibold text-slate-800"
+              className="block text-sm font-semibold text-slate-800 dark:text-slate-100"
             >
               Sleep date
             </label>
-            <p className="mt-1 text-sm leading-6 text-slate-500">
+            <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
               Choose the date for the sleep entry you want to save.
             </p>
             <input
@@ -166,31 +166,31 @@ const AddRecord = () => {
               required
               defaultValue={new Date().toISOString().split("T")[0]}
               onFocus={(event) => event.target.showPicker?.()}
-              className="mt-4 block w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+              className="mt-4 block w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:focus:ring-sky-900"
             />
           </div>
 
-          <div className="rounded-[1.75rem] border border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#f1f6fc_100%)] p-5 shadow-sm">
+          <div className="rounded-[1.75rem] border border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#f1f6fc_100%)] p-5 shadow-sm dark:border-slate-800 dark:bg-[linear-gradient(180deg,#0f172a_0%,#111827_100%)]">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <label
                   htmlFor="amount"
-                  className="block text-sm font-semibold text-slate-800"
+                  className="block text-sm font-semibold text-slate-800 dark:text-slate-100"
                 >
                   Hours slept
                 </label>
-                <p className="mt-1 text-sm leading-6 text-slate-500">
+                <p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">
                   Select between 0 and 12 hours in steps of 0.5.
                 </p>
               </div>
-              <div className="inline-flex items-center gap-2 self-start rounded-full border border-sky-200 bg-white px-4 py-2 text-sm font-semibold text-sky-700 shadow-sm">
+              <div className="inline-flex items-center gap-2 self-start rounded-full border border-sky-200 bg-white px-4 py-2 text-sm font-semibold text-sky-700 shadow-sm dark:border-sky-900 dark:bg-slate-900">
                 <span className="h-2.5 w-2.5 rounded-full bg-sky-500" />
                 {amount} hours
               </div>
             </div>
 
-            <div className="mt-5 rounded-[1.5rem] border border-slate-200 bg-white px-4 py-5">
-              <div className="mb-4 flex items-center justify-between text-xs font-medium text-slate-400">
+            <div className="mt-5 rounded-[1.5rem] border border-slate-200 bg-white px-4 py-5 dark:border-slate-700 dark:bg-slate-900">
+              <div className="mb-4 flex items-center justify-between text-xs font-medium text-slate-400 dark:text-slate-500">
                 <span>0h</span>
                 <span>12h</span>
               </div>
@@ -207,8 +207,8 @@ const AddRecord = () => {
                 className="w-full cursor-pointer accent-slate-900"
               />
 
-              <div className="mt-4 flex items-center justify-between rounded-full bg-sky-50 px-4 py-2 text-sm">
-                <span className="font-medium text-slate-600">Selected range</span>
+              <div className="mt-4 flex items-center justify-between rounded-full bg-sky-50 px-4 py-2 text-sm dark:bg-sky-950/40">
+                <span className="font-medium text-slate-600 dark:text-slate-300">Selected range</span>
                 <span className="font-semibold text-sky-700">
                   {activeAmountLabel}
                 </span>
@@ -221,20 +221,20 @@ const AddRecord = () => {
                   key={item.label}
                   className={`rounded-2xl px-4 py-3 text-center transition ${
                     amount >= item.min && amount <= item.max
-                      ? "border border-sky-200 bg-sky-50 shadow-sm"
-                      : "border border-slate-200 bg-white"
+                      ? "border border-sky-200 bg-sky-50 shadow-sm dark:border-sky-900 dark:bg-sky-950/40"
+                      : "border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900"
                   }`}
                 >
                   <p
                     className={`text-xs font-semibold uppercase tracking-[0.18em] ${
                       amount >= item.min && amount <= item.max
                         ? "text-sky-700"
-                        : "text-slate-500"
+                        : "text-slate-500 dark:text-slate-400"
                     }`}
                   >
                     {item.label}
                   </p>
-                  <p className="mt-1 text-sm font-medium text-slate-700">
+                  <p className="mt-1 text-sm font-medium text-slate-700 dark:text-slate-200">
                     {item.value}
                   </p>
                 </div>
@@ -243,7 +243,7 @@ const AddRecord = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-slate-100 pt-6">
+        <div className="flex flex-col gap-4 border-t border-slate-100 pt-6 dark:border-slate-800">
           <button
             type="submit"
             disabled={isLoading}
@@ -282,8 +282,8 @@ const AddRecord = () => {
             <div
               className={`rounded-[1.25rem] px-4 py-3 text-sm font-medium ${
                 alertType === "success"
-                  ? "border border-emerald-200 bg-emerald-50 text-emerald-700"
-                  : "border border-red-200 bg-red-50 text-red-700"
+                  ? "border border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950/40"
+                  : "border border-red-200 bg-red-50 text-red-700 dark:border-red-900 dark:bg-red-950/40"
               }`}
             >
               {alertMessage}
