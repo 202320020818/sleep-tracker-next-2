@@ -272,7 +272,7 @@ export default function ExerciseEntryCard({
                 }}
                 className="inline-flex h-8 items-center justify-center rounded-full border border-slate-300 bg-white px-2.5 text-xs font-semibold leading-none text-slate-700 transition hover:border-sky-300 hover:text-sky-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-sky-500 dark:hover:text-sky-300"
               >
-                Edit Entry
+                Edit
               </button>
               <button
                 type="button"
@@ -280,7 +280,7 @@ export default function ExerciseEntryCard({
                 disabled={isDeleting}
                 className="inline-flex h-8 items-center justify-center rounded-full border border-red-200 bg-red-50 px-2.5 text-xs font-semibold leading-none text-red-600 transition hover:bg-red-100 disabled:opacity-70"
               >
-                {isDeleting ? "Deleting..." : "Delete Entry"}
+                {isDeleting ? "Deleting..." : "Delete "}
               </button>
             </div>
           </>

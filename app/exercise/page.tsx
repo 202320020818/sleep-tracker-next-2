@@ -116,11 +116,7 @@ export default async function ExercisePage() {
                 <h3 className="text-2xl font-bold text-amber-800">
                   Exercise database is not ready yet
                 </h3>
-                <p className="mt-3 text-base leading-7 text-amber-700">
-                  The Exercise table is still missing in the database. Run
-                  `npx prisma db push`, then restart the dev server and refresh
-                  this page.
-                </p>
+                
               </div>
             ) : exercises.length === 0 ? (
               <div className="mt-6 rounded-[1.75rem] bg-slate-50 p-8 text-center ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
