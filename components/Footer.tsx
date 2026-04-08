@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-slate-200 bg-[#f8fbfd] dark:border-slate-800 dark:bg-slate-950">
+    <footer className="border-t border-slate-200 bg-[#edf1f4] dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-start">
           <div className="max-w-md">

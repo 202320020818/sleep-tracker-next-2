@@ -11,10 +11,10 @@ export default async function HomePage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f6f9fc] text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <main className="min-h-screen bg-[#a1bcce] text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8 lg:py-16">
         <div className="grid gap-6">
-          <section className="overflow-hidden rounded-[2.25rem] border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <section className="overflow-hidden rounded-[2.25rem] border border-slate-200 bg-[#ecf2f2] shadow-sm dark:border-slate-400 dark:bg-slate-900">
             <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.35fr_0.65fr] lg:items-start lg:p-10">
               <div>
                 <div className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">

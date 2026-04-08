@@ -14,7 +14,7 @@ const navLinks = [
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-[#ebeced] backdrop-blur dark:border-slate-800 dark:bg-slate-950/90">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
           <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#e0f2fe_0%,#f8fafc_100%)] ring-1 ring-sky-200 dark:bg-[linear-gradient(135deg,#0f172a_0%,#1e293b_100%)] dark:ring-sky-900">

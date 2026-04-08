@@ -40,7 +40,7 @@ const ContactPage = () => {
   };
 
   return (
-    <main className="accent-page min-h-screen text-slate-900 dark:text-slate-100">
+    <main className="bg-[#a1bcce] min-h-screen text-slate-900 dark:text-slate-100 ">
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-8 lg:py-20">
         <div className="mb-10 max-w-3xl">
           <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">

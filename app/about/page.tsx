@@ -35,7 +35,7 @@ const benefits = [
 
 const AboutPage = () => {
   return (
-    <main className="min-h-screen bg-[linear-gradient(180deg,#f7fbff_0%,#eef7f4_52%,#fffaf1_100%)] text-slate-900 dark:bg-[linear-gradient(180deg,#020617_0%,#0f172a_52%,#111827_100%)] dark:text-slate-100">
+    <main className="min-h-screen bg-[#a1bcce] text-slate-900 dark:bg-[linear-gradient(180deg,#020617_0%,#0f172a_52%,#111827_100%)] dark:text-slate-100">
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-8 lg:py-24">
         <div className="relative overflow-hidden rounded-[2.5rem] border border-sky-100 bg-white/80 p-8 shadow-[0_30px_100px_rgba(148,163,184,0.16)] backdrop-blur dark:border-slate-800 dark:bg-slate-900/80 sm:p-10 lg:p-14">
           <div className="absolute -left-16 top-8 h-40 w-40 rounded-full bg-sky-100/70 blur-3xl dark:bg-sky-950/50" />
@@ -90,26 +90,26 @@ const AboutPage = () => {
         </div>
 
         <section className="mt-10 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-[2.25rem] bg-[linear-gradient(135deg,#0f172a_0%,#0f766e_100%)] p-8 text-white shadow-[0_24px_80px_rgba(15,23,42,0.2)] sm:p-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.26em] text-emerald-200">
+          <div className="rounded-[2.25rem] bg-white dark:bg-[linear-gradient(135deg,#0f172a_0%,#0f766e_100%)] p-8 text-gray-900 dark:text-white shadow-[0_24px_80px_rgba(15,23,42,0.2)] sm:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.26em] text-emerald-600 dark:text-emerald-200">
               Our mission
             </p>
             <h2 className="mt-4 text-3xl font-bold">
               Make better sleep feel practical and achievable.
             </h2>
-            <p className="mt-5 text-base leading-8 text-slate-100">
+            <p className="mt-5 text-base leading-8 text-gray-700 dark:text-slate-100">
               We built SleepTracker to help people improve their well-being with
               small, consistent changes. When sleep data becomes easier to
               understand, it becomes easier to take action.
             </p>
-            <p className="mt-4 text-base leading-8 text-slate-200">
+            <p className="mt-4 text-base leading-8 text-gray-600 dark:text-slate-200">
               Our goal is to create a calm, useful experience that supports
               healthier routines without overwhelming the user.
             </p>
           </div>
 
-          <div className="rounded-[2.25rem] border border-amber-100 bg-[#fffaf2] p-8 shadow-[0_22px_70px_rgba(245,158,11,0.1)] dark:border-amber-900/50 dark:bg-amber-950/20 sm:p-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.26em] text-amber-700">
+          <div className="rounded-[2.25rem] border border-[#687884] bg-white p-8 shadow-[0_22px_70px_rgba(245,158,11,0.1)] dark:border-white dark:bg-[#234155] sm:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.26em] text-white">
               Our story
             </p>
             <h2 className="mt-4 text-3xl font-bold text-slate-900 dark:text-white">

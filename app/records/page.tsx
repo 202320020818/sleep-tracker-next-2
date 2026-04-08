@@ -67,10 +67,10 @@ export default async function RecordsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f6f9fc] text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <main className="min-h-screen bg-[#a1bcce] text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8 lg:py-16">
         <div className="grid gap-6">
-          <section className="rounded-[2.25rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+          <section className="rounded-[2.25rem] border border-slate-200 bg-[#ecf2f2] p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <div className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
@@ -102,7 +102,7 @@ export default async function RecordsPage() {
             </div>
           </section>
 
-          <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+          <section className="rounded-[2rem] border border-slate-200 bg-[#ecf2f2] p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
             <div className="border-b border-slate-100 pb-6 dark:border-slate-800">
               <div className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
                 Sleep Records
@@ -168,7 +168,7 @@ export default async function RecordsPage() {
             )}
           </section>
 
-          <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+          <section className="rounded-[2rem] border border-slate-200 bg-[#ecf2f2] p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
             <div className="border-b border-slate-100 pb-6 dark:border-slate-800">
               <div className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
                 Exercise Records

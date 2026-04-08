@@ -59,7 +59,7 @@ const features = [
 
 const Guest = () => {
   return (
-    <main className="min-h-screen bg-[#f5f8fc] text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <main className="min-h-screen bg-[#d4e3ec] text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-8 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="max-w-2xl">

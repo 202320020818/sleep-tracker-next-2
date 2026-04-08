@@ -45,7 +45,7 @@ export default async function ExercisePage() {
   const totalEntries = exercises?.length ?? 0;
 
   return (
-    <main className="min-h-screen bg-[#f6f9fc] text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <main className="min-h-screen bg-[#a1bcce] text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8 lg:py-16">
         <div className="grid gap-6">
           <section className="overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
