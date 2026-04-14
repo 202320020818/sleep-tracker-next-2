@@ -64,7 +64,7 @@ export default async function ExercisePage() {
               </div>
 
               <div className="grid gap-4 sm:grid-cols-3">
-                <div className="rounded-[1.5rem] bg-slate-50 p-5 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+                <div className="interactive-card rounded-[1.5rem] bg-slate-50 p-5 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                     Total Entries
                   </p>
@@ -72,7 +72,7 @@ export default async function ExercisePage() {
                     {totalEntries}
                   </p>
                 </div>
-                <div className="rounded-[1.5rem] bg-slate-50 p-5 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+                <div className="interactive-card rounded-[1.5rem] bg-slate-50 p-5 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                     Focus
                   </p>
@@ -80,7 +80,7 @@ export default async function ExercisePage() {
                     Daily progress
                   </p>
                 </div>
-                <div className="rounded-[1.5rem] bg-slate-50 p-5 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+                <div className="interactive-card rounded-[1.5rem] bg-slate-50 p-5 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                     Benefit
                   </p>
@@ -129,7 +129,7 @@ export default async function ExercisePage() {
                 </p>
               </div>
             ) : (
-              <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                 {exercises.map((exercise) => (
                   <ExerciseEntryCard key={exercise.id} exercise={exercise} />
                 ))}

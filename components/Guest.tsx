@@ -93,7 +93,7 @@ const Guest = () => {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+                  className="interactive-card rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900"
                 >
                   <h2 className="text-base font-semibold text-slate-900 dark:text-white">
                     {feature.title}
@@ -111,14 +111,14 @@ const Guest = () => {
               {heroImages.map((image) => (
                 <div
                   key={image.src}
-                  className={`relative overflow-hidden rounded-[1.5rem] ${image.className}`}
+                  className={`interactive-card relative overflow-hidden rounded-[1.5rem] ${image.className}`}
                 >
                   <Image
                     src={image.src}
                     alt={image.alt}
                     fill
                     priority
-                    className="object-cover"
+                    className="interactive-media object-cover"
                   />
                 </div>
               ))}
@@ -153,14 +153,14 @@ const Guest = () => {
             {galleryImages.map((image) => (
               <div
                 key={image.src}
-                className="relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-800"
+                className="interactive-card relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-800"
               >
                 <div className="relative aspect-[4/5]">
                   <Image
                     src={image.src}
                     alt={image.alt}
                     fill
-                    className="object-cover"
+                    className="interactive-media object-cover"
                   />
                 </div>
               </div>

@@ -86,7 +86,7 @@ const AddRecord = () => {
               few quick steps.
             </p>
           </div>
-          <div className="rounded-[1.5rem] bg-slate-50 px-4 py-3 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+          <div className="interactive-card rounded-[1.5rem] bg-slate-50 px-4 py-3 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
               Current hours
             </p>
@@ -149,7 +149,7 @@ const AddRecord = () => {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
-          <div className="rounded-[1.75rem] bg-slate-50 p-5 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+          <div className="interactive-card rounded-[1.75rem] bg-slate-50 p-5 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
             <label
               htmlFor="date"
               className="block text-sm font-semibold text-slate-800 dark:text-slate-100"
@@ -170,7 +170,7 @@ const AddRecord = () => {
             />
           </div>
 
-          <div className="rounded-[1.75rem] border border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#f1f6fc_100%)] p-5 shadow-sm dark:border-slate-800 dark:bg-[linear-gradient(180deg,#0f172a_0%,#111827_100%)]">
+          <div className="interactive-card rounded-[1.75rem] border border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#f1f6fc_100%)] p-5 shadow-sm dark:border-slate-800 dark:bg-[linear-gradient(180deg,#0f172a_0%,#111827_100%)]">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <label

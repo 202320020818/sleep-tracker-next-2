@@ -240,6 +240,36 @@ html[data-accent="blue"] {
   border-color: var(--border);
 }
 
+.interactive-card {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .interactive-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px color-mix(in srgb, var(--accent-300) 16%, transparent);
+    border-color: color-mix(in srgb, var(--accent-300) 42%, var(--border-strong));
+  }
+}
+
+.interactive-media {
+  transition:
+    transform 280ms ease,
+    filter 280ms ease;
+}
+
+@media (hover: hover) {
+  .interactive-card:hover .interactive-media {
+    transform: scale(1.04);
+    filter: saturate(1.04);
+  }
+}
+
 .dark .accent-page {
   background:
     radial-gradient(circle at top left, color-mix(in srgb, var(--accent-950) 34%, transparent) 0%, transparent 36%),
@@ -269,6 +299,17 @@ html[data-accent="blue"] {
 .dark .accent-panel {
   background: color-mix(in srgb, var(--accent-950) 20%, #0f172a);
   border-color: color-mix(in srgb, var(--accent-900) 32%, #334155);
+}
+
+@media (hover: hover) {
+  .dark .interactive-card:hover {
+    box-shadow: 0 26px 80px rgba(2, 12, 27, 0.5);
+    border-color: color-mix(in srgb, var(--accent-700) 36%, #334155);
+  }
+
+  .dark .interactive-card:hover .interactive-media {
+    filter: brightness(0.92) saturate(0.92);
+  }
 }
 
 @theme inline {

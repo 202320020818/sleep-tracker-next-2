@@ -77,14 +77,14 @@ const AddExerciseRecord = () => {
             the image you want to display with the saved record.
           </p>
 
-          <div className="mt-8 rounded-[1.75rem] border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+          <div className="interactive-card mt-8 rounded-[1.75rem] border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900">
             <p className="text-sm font-medium text-slate-700 dark:text-slate-200">Image preview</p>
             <div className="mt-4 overflow-hidden rounded-[1.5rem] bg-slate-100 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
               {imagePreview ? (
                 <img
                   src={imagePreview}
                   alt="Exercise preview"
-                  className="h-72 w-full object-cover"
+                  className="interactive-media h-72 w-full object-cover"
                 />
               ) : (
                 <div className="flex h-72 items-center justify-center px-8 text-center text-sm leading-7 text-slate-400 dark:text-slate-500">

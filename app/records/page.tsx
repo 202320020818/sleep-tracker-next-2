@@ -67,7 +67,7 @@ export default async function RecordsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#a1bcce] text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <main className="min-h-screen bg-[#a1bcce] text-slate-900 dark:bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.12)_0%,_transparent_30%),linear-gradient(180deg,#030712_0%,#071224_42%,#0a1730_100%)] dark:text-slate-100">
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-8 lg:py-16">
         <div className="grid gap-6">
           <section className="rounded-[2.25rem] border border-slate-200 bg-[#ecf2f2] p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
@@ -126,7 +126,7 @@ export default async function RecordsPage() {
                 {records.map((record) => (
                   <article
                     key={record.id}
-                    className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+                    className="interactive-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
@@ -198,18 +198,19 @@ export default async function RecordsPage() {
                 </p>
               </div>
             ) : (
-              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
                 {exercises.map((exercise) => (
                   <article
                     key={exercise.id}
-                    className="overflow-hidden rounded-[1.4rem] border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900"
+                    className="interactive-card overflow-hidden rounded-[1.4rem] border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900"
                   >
-                    <div className="relative aspect-[4/4.2] bg-slate-100 dark:bg-slate-800">
+                    <div className="relative aspect-[4/4.2] bg-slate-100 dark:bg-slate-950">
                       <img
                         src={exercise.imageUrl}
                         alt={exercise.title}
-                        className="h-full w-full object-cover"
+                        className="interactive-media h-full w-full object-cover dark:brightness-[0.68] dark:contrast-[1.05] dark:saturate-[0.82]"
                       />
+                      <div className="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(180deg,rgba(3,7,18,0.08)_0%,rgba(3,7,18,0.32)_100%)] dark:block" />
                     </div>
 
                     <div className="p-3">

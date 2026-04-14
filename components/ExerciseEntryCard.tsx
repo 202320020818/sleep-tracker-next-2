@@ -114,12 +114,13 @@ export default function ExerciseEntryCard({
 
   return (
     <article className="overflow-hidden rounded-[1.1rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(148,163,184,0.14)] dark:border-slate-800 dark:bg-slate-900">
-      <div className="relative aspect-[4/3.7] bg-slate-100 dark:bg-slate-800">
+      <div className="relative aspect-[4/3.7] bg-slate-100 dark:bg-slate-950">
         <img
           src={imagePreview}
           alt={formValues.title}
-          className="h-full w-full object-cover"
+          className="interactive-media h-full w-full object-cover dark:brightness-[0.68] dark:contrast-[1.05] dark:saturate-[0.82]"
         />
+        <div className="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(180deg,rgba(3,7,18,0.08)_0%,rgba(3,7,18,0.32)_100%)] dark:block" />
       </div>
 
       <div className="p-2.5">

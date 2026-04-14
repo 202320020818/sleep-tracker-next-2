@@ -40,16 +40,16 @@ const ContactPage = () => {
   };
 
   return (
-    <main className="bg-[#a1bcce] min-h-screen text-slate-900 dark:text-slate-100 ">
+    <main className="min-h-screen bg-[linear-gradient(180deg,#eaf4fb_0%,#d7e9f5_45%,#c7dceb_100%)] text-slate-900 dark:bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.18)_0%,_transparent_34%),linear-gradient(180deg,#030712_0%,#081226_38%,#0a1930_100%)] dark:text-slate-100">
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-8 lg:py-20">
         <div className="mb-10 max-w-3xl">
-          <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
+          <span className="inline-flex rounded-full border border-sky-200 bg-white/80 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700 shadow-sm dark:border-sky-900/70 dark:bg-sky-950/40 dark:text-sky-300">
             Contact SleepTracker
           </span>
-          <h1 className="mt-5 text-4xl font-bold leading-tight sm:text-5xl">
+          <h1 className="mt-5 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl dark:text-white">
             We&apos;re here to help with your sleep tracking experience.
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-700 dark:text-slate-200/90">
             Reach out for support, feedback, or questions. Everything on this
             page is designed to make contacting us feel simple and clear.
           </p>
@@ -61,9 +61,9 @@ const ContactPage = () => {
               {contactDetails.map((detail) => (
                 <div
                   key={detail.title}
-                  className="accent-card rounded-[1.75rem] border p-6"
+                  className="interactive-card accent-card rounded-[1.75rem] border p-6 dark:border-sky-900/45 dark:bg-[linear-gradient(180deg,rgba(7,18,38,0.96)_0%,rgba(10,23,45,0.92)_100%)] dark:shadow-[0_24px_70px_rgba(2,12,27,0.45)]"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-400">
                     {detail.title}
                   </p>
                   <h2 className="mt-3 text-2xl font-bold leading-tight text-slate-900 dark:text-white">
@@ -76,8 +76,8 @@ const ContactPage = () => {
               ))}
             </div>
 
-            <div className="accent-card rounded-[2rem] border p-6 sm:p-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700">
+            <div className="accent-card rounded-[2rem] border p-6 dark:border-sky-900/45 dark:bg-[linear-gradient(180deg,rgba(7,18,38,0.96)_0%,rgba(10,23,45,0.92)_100%)] sm:p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-400">
                 What we can help with
               </p>
               <h2 className="mt-3 text-2xl font-bold text-slate-900 dark:text-white">
@@ -92,9 +92,9 @@ const ContactPage = () => {
                 {supportPoints.map((point, index) => (
                   <div
                     key={point}
-                    className="accent-panel rounded-[1.5rem] border p-5"
+                    className="interactive-card accent-panel rounded-[1.5rem] border p-5 dark:border-sky-900/45 dark:bg-slate-950/55"
                   >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 text-sm font-semibold text-sky-700">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 text-sm font-semibold text-sky-700 dark:bg-sky-950/80 dark:text-sky-300">
                       {index + 1}
                     </div>
                     <p className="mt-4 text-sm font-semibold leading-6 text-slate-900 dark:text-white">
@@ -106,15 +106,15 @@ const ContactPage = () => {
             </div>
           </section>
 
-          <section className="accent-card-strong rounded-[2rem] border p-6 shadow-sm sm:p-8 lg:p-10">
+          <section className="accent-card-strong rounded-[2rem] border p-6 shadow-sm dark:border-sky-900/50 dark:bg-[linear-gradient(180deg,rgba(7,18,38,0.98)_0%,rgba(11,27,51,0.96)_100%)] dark:shadow-[0_28px_80px_rgba(2,12,27,0.55)] sm:p-8 lg:p-10">
             <div className="mb-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-400">
                 Send a message
               </p>
               <h2 className="mt-3 text-3xl font-bold text-slate-900 dark:text-white">
                 Start your email draft here.
               </h2>
-              <p className="mt-3 max-w-xl text-base leading-7 text-slate-600 dark:text-slate-300">
+              <p className="mt-3 max-w-xl text-base leading-7 text-slate-600 dark:text-slate-200/90">
                 Fill in your details below. When you submit, your default email
                 app will open with your message ready to send.
               </p>
@@ -132,7 +132,7 @@ const ContactPage = () => {
                     name="name"
                     placeholder="Your name"
                     required
-                    className="w-full rounded-2xl border border-[var(--border)] bg-white/80 px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:bg-slate-950/80 dark:text-white dark:focus:ring-sky-900"
+                    className="w-full rounded-2xl border border-[var(--border)] bg-white/80 px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:border-sky-900/60 dark:bg-[#050b18] dark:text-white dark:placeholder:text-slate-500 dark:focus:border-sky-500 dark:focus:ring-sky-950"
                   />
                 </label>
 
@@ -146,7 +146,7 @@ const ContactPage = () => {
                     name="email"
                     placeholder="you@example.com"
                     required
-                    className="w-full rounded-2xl border border-[var(--border)] bg-white/80 px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:bg-slate-950/80 dark:text-white dark:focus:ring-sky-900"
+                    className="w-full rounded-2xl border border-[var(--border)] bg-white/80 px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:border-sky-900/60 dark:bg-[#050b18] dark:text-white dark:placeholder:text-slate-500 dark:focus:border-sky-500 dark:focus:ring-sky-950"
                   />
                 </label>
               </div>
@@ -161,11 +161,11 @@ const ContactPage = () => {
                   rows={8}
                   placeholder="Tell us what you need help with."
                   required
-                  className="w-full rounded-[1.5rem] border border-[var(--border)] bg-white/80 px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:bg-slate-950/80 dark:text-white dark:focus:ring-sky-900"
+                  className="w-full rounded-[1.5rem] border border-[var(--border)] bg-white/80 px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:border-sky-900/60 dark:bg-[#050b18] dark:text-white dark:placeholder:text-slate-500 dark:focus:border-sky-500 dark:focus:ring-sky-950"
                 />
               </label>
 
-              <div className="accent-panel rounded-[1.5rem] border px-5 py-4 text-sm leading-6 text-slate-600 dark:text-slate-300">
+              <div className="accent-panel rounded-[1.5rem] border px-5 py-4 text-sm leading-6 text-slate-600 dark:border-sky-900/45 dark:bg-slate-950/55 dark:text-slate-200/85">
                 When you submit, your default email app opens with the subject
                 and message already prepared.
               </div>

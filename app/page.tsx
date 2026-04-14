@@ -45,7 +45,7 @@ export default async function HomePage() {
                 </div>
 
                 <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                  <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-4 dark:border-slate-800 dark:bg-slate-800/70">
+                  <div className="interactive-card rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-4 dark:border-slate-800 dark:bg-slate-800/70">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                       Joined
                     </p>
@@ -54,7 +54,7 @@ export default async function HomePage() {
                     </p>
                   </div>
 
-                  <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-4 dark:border-slate-800 dark:bg-slate-800/70">
+                  <div className="interactive-card rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-4 dark:border-slate-800 dark:bg-slate-800/70">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                       Last Active
                     </p>
@@ -65,7 +65,7 @@ export default async function HomePage() {
                     </p>
                   </div>
 
-                  <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-4 dark:border-slate-800 dark:bg-slate-800/70">
+                  <div className="interactive-card rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-4 dark:border-slate-800 dark:bg-slate-800/70">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                       Focus
                     </p>
@@ -77,7 +77,7 @@ export default async function HomePage() {
               </div>
 
               <div className="flex justify-center lg:justify-end">
-                <div className="w-full max-w-[320px] rounded-[2rem] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-6 shadow-sm dark:border-slate-800 dark:bg-[linear-gradient(180deg,#0f172a_0%,#111827_100%)]">
+                <div className="interactive-card w-full max-w-[320px] rounded-[2rem] border border-slate-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-6 shadow-sm dark:border-slate-800 dark:bg-[linear-gradient(180deg,#0f172a_0%,#111827_100%)]">
                   <div className="rounded-[1.5rem] border border-sky-100 bg-sky-50/70 px-4 py-3 dark:border-sky-900 dark:bg-sky-950/40">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
                       Profile Snapshot
