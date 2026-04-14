@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState } from "react";
 import addExerciseRecord from "@/app/actions/addExerciseRecord";
 
@@ -81,11 +82,16 @@ const AddExerciseRecord = () => {
             <p className="text-sm font-medium text-slate-700 dark:text-slate-200">Image preview</p>
             <div className="mt-4 overflow-hidden rounded-[1.5rem] bg-slate-100 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
               {imagePreview ? (
-                <img
+                <div className="relative h-72 w-full">
+                  <Image
                   src={imagePreview}
                   alt="Exercise preview"
-                  className="interactive-media h-72 w-full object-cover"
-                />
+                    fill
+                    unoptimized
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="interactive-media object-cover"
+                  />
+                </div>
               ) : (
                 <div className="flex h-72 items-center justify-center px-8 text-center text-sm leading-7 text-slate-400 dark:text-slate-500">
                   Upload an image to preview how your exercise card will look.

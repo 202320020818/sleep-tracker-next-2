@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import deleteExerciseRecord from "@/app/actions/deleteExerciseRecord";
@@ -115,9 +116,12 @@ export default function ExerciseEntryCard({
   return (
     <article className="overflow-hidden rounded-[1.1rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(148,163,184,0.14)] dark:border-slate-800 dark:bg-slate-900">
       <div className="relative aspect-[4/3.7] bg-slate-100 dark:bg-slate-950">
-        <img
+        <Image
           src={imagePreview}
           alt={formValues.title}
+          fill
+          unoptimized
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="interactive-media h-full w-full object-cover dark:brightness-[0.68] dark:contrast-[1.05] dark:saturate-[0.82]"
         />
         <div className="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(180deg,rgba(3,7,18,0.08)_0%,rgba(3,7,18,0.32)_100%)] dark:block" />

@@ -1,6 +1,7 @@
 import Guest from "@/components/Guest";
 import { currentUser } from "@clerk/nextjs/server";
 import AddNewRecord from "@/components/AddNewRecord";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function HomePage() {
@@ -88,9 +89,12 @@ export default async function HomePage() {
                   </div>
 
                   <div className="mt-5 flex flex-col items-center text-center">
-                    <img
+                    <Image
                       src={user.imageUrl}
                       alt={`${user.firstName || "User"} profile`}
+                      width={128}
+                      height={128}
+                      unoptimized
                       className="h-28 w-28 rounded-full object-cover shadow-md ring-4 ring-white dark:ring-slate-800 sm:h-32 sm:w-32"
                     />
                     <div className="mt-4">

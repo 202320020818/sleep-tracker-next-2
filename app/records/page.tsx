@@ -1,4 +1,5 @@
 import { Prisma } from "@prisma/client";
+import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
@@ -205,9 +206,12 @@ export default async function RecordsPage() {
                     className="interactive-card overflow-hidden rounded-[1.4rem] border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900"
                   >
                     <div className="relative aspect-[4/4.2] bg-slate-100 dark:bg-slate-950">
-                      <img
+                      <Image
                         src={exercise.imageUrl}
                         alt={exercise.title}
+                        fill
+                        unoptimized
+                        sizes="(min-width: 1536px) 20vw, (min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                         className="interactive-media h-full w-full object-cover dark:brightness-[0.68] dark:contrast-[1.05] dark:saturate-[0.82]"
                       />
                       <div className="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(180deg,rgba(3,7,18,0.08)_0%,rgba(3,7,18,0.32)_100%)] dark:block" />
