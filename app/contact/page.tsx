@@ -76,7 +76,7 @@ const ContactPage = () => {
               ))}
             </div>
 
-            <div className="accent-card rounded-[2rem] border p-6 dark:border-sky-900/45 dark:bg-[linear-gradient(180deg,rgba(7,18,38,0.96)_0%,rgba(10,23,45,0.92)_100%)] sm:p-8">
+            <div className="interactive-card accent-card rounded-[2rem] border p-6 dark:border-sky-900/45 dark:bg-[linear-gradient(180deg,rgba(7,18,38,0.96)_0%,rgba(10,23,45,0.92)_100%)] sm:p-8">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-400">
                 What we can help with
               </p>
@@ -106,7 +106,7 @@ const ContactPage = () => {
             </div>
           </section>
 
-          <section className="accent-card-strong rounded-[2rem] border p-6 shadow-sm dark:border-sky-900/50 dark:bg-[linear-gradient(180deg,rgba(7,18,38,0.98)_0%,rgba(11,27,51,0.96)_100%)] dark:shadow-[0_28px_80px_rgba(2,12,27,0.55)] sm:p-8 lg:p-10">
+          <section className="interactive-card accent-card-strong rounded-[2rem] border p-6 shadow-sm dark:border-sky-900/50 dark:bg-[linear-gradient(180deg,rgba(7,18,38,0.98)_0%,rgba(11,27,51,0.96)_100%)] dark:shadow-[0_28px_80px_rgba(2,12,27,0.55)] sm:p-8 lg:p-10">
             <div className="mb-8">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-400">
                 Send a message
