@@ -65,12 +65,12 @@ export default function Navbar() {
           </SignedIn>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
+        <div className="flex items-center gap-1.5 md:hidden">
+          <ThemeToggle className="h-11 flex-shrink-0 gap-1.5 px-3 text-xs sm:text-sm" />
 
           <SignedOut>
             <SignInButton>
-              <button className="rounded-full bg-slate-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-sky-700 dark:bg-sky-600 dark:hover:bg-sky-500">
+              <button className="h-11 min-w-[78px] flex-shrink-0 whitespace-nowrap rounded-full bg-slate-900 px-4 text-xs font-semibold leading-none text-white transition hover:bg-sky-700 dark:bg-sky-600 dark:hover:bg-sky-500 sm:text-sm">
                 Sign In
               </button>
             </SignInButton>
